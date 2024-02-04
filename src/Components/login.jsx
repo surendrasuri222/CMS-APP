@@ -7,7 +7,7 @@ export default function login() {
                 <form action="index.html" method="get" className="form-signin">
                     <h2 className="form-signin-heading text-center">DCX CMS</h2>
                     <label htmlFor="inputEmail" className="sr-only">
-                        Email address
+                        Email addres
                     </label>
                     <input
                         type="email"
