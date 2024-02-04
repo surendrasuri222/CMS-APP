@@ -1,6 +1,7 @@
 
-import Dashboard from './Components';
-import UsersPage from './Components/pages';
+import Dashboard from './Components/Index';
+import UsersPage from './Components/Pages';
+import Users from './Components/Users';
 
 
 
@@ -10,6 +11,7 @@ function App() {
     <>
       <Dashboard />
       <UsersPage />
+      <Users />
     </>
 
   );

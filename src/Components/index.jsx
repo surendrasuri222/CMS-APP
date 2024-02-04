@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const Dashboard = () => {
     return (
         <div>
-            <h1>this is Dashboard</h1>
+            {/* <h1>this is Dashboard</h1> */}
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
