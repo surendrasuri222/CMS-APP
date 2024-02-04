@@ -1,10 +1,9 @@
 import { NavLink } from 'react-router-dom'
 
 
-const Dashboard = () => {
+const Navbar = () => {
     return (
         <div>
-            {/* <h1>this is Dashboard</h1> */}
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
@@ -24,10 +23,10 @@ const Dashboard = () => {
 
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav">
-                            <li className="active"><a href="index.html">Dashboard</a></li>
-                            <li><a href="pages.html">Pages</a></li>
-                            <li><a href="categories.html">Categories</a></li>
-                            <li><a href="users.html">Users</a></li>
+                            <li className="active"><NavLink to="/dashboard">Dashboard</NavLink></li>
+                            <li><NavLink to="/pages">Pages</NavLink></li>
+                            <li><NavLink to="/categories">Categories</NavLink></li>
+                            <li><NavLink to="/users">Users</NavLink></li>
                         </ul>
                         <form className="navbar-form navbar-left" role="search">
                             <div className="form-group">
@@ -49,7 +48,7 @@ const Dashboard = () => {
                                     <li><a href="#">Profile</a></li>
                                 </ul>
                             </li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li><NavLink to="/logout">Logout</NavLink></li>
                         </ul>
                     </div>
                 </div>
@@ -61,6 +60,6 @@ const Dashboard = () => {
 }
 
 
-export default Dashboard;
+export default Navbar;
 
 

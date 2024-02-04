@@ -1,12 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-function UsersPage() {
+const Pages = () => {
     return (
-        <div>
-            {/* <h1>Pages will be diplay here</h1> */}
-        </div>
+        <>
+            <h1>Pages</h1>
+        </>
     )
-
 }
 
-export default UsersPage;
+export default Pages
