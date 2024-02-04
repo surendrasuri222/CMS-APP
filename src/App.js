@@ -3,6 +3,7 @@ import Navbar from './Components/Index';
 import Pages from './Components/Pages';
 import Users from "./Components/Users";
 import Categories from "./Components/Categories";
+import Login from "./Components/Login";
 import Logout from "./Components/Logout";
 import Dashboard from "./Components/Dashboard";
 
@@ -12,6 +13,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/pages" element={<Pages />} />
         <Route path="/users" element={<Users />} />
