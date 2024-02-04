@@ -1,5 +1,5 @@
 
-import './App.css';
+import Dashboard from './Components';
 import UsersPage from './Components/pages';
 
 
@@ -8,9 +8,10 @@ function App() {
   return (
 
     <>
-    <UsersPage/>
+      <Dashboard />
+      <UsersPage />
     </>
-   
+
   );
 }
 
