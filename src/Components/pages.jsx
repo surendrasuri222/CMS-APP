@@ -4,7 +4,7 @@ const Pages = () => {
     return (
         <>
             <h1>Pages</h1>
-            <p>Pages</p>
+            <p>Pages pages</p>
         </>
     )
 }
