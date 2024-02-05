@@ -26,7 +26,7 @@ export default function Categories() {
                             <div className="row">
                                 <div className="col-md-6">
                                     <h1 className="page-header">
-                                        <i className="glyphicon glyphicon-folder-open"></i> Cateegories
+                                        <i className="glyphicon glyphicon-folder-open"></i> Categories
                                     </h1>
                                 </div>
                                 <div className="col-md-6">
