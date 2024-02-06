@@ -36,8 +36,10 @@ body#login h2 {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    margin: 5px auto;
     padding: 10px;
     font-size: 16px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .form-signin .form-control:focus {

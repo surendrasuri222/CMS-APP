@@ -1,10 +1,11 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function SignUp() {
     return (
         <div className="container">
             <form action="index.html" method="get" className="form-signin">
-                <h2 className="form-signin-heading text-center">Sign In</h2>
+                <h2 className="form-signin-heading text-center">Sign Up</h2>
                 <label htmlFor="inputFirstName" className="sr-only">
                     First Name
                 </label>
@@ -58,11 +59,8 @@ function SignUp() {
                     placeholder="Confirm Password"
                     required
                 />
-                <div className="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me" /> Remember me
-                    </label>
-                </div>
+                <p>Already have an acoount?<NavLink to="/login"> Login</NavLink></p>
+
                 <button className="btn btn-lg btn-primary btn-block" type="submit">
                     Sign in
                 </button>
