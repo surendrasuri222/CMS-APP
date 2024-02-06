@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from "react-router-dom"
+import Category from './Category';
 
 export default function Categories() {
     return (
@@ -63,17 +65,17 @@ export default function Categories() {
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="category.html">Sample Category One</a></td>
+                                        <td><NavLink to="/category">Sample Category One</NavLink></td>
                                     </tr>
 
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="page.html">Sample Category Two</a></td>
+                                        <td><NavLink to="/category">Sample Category Two</NavLink></td>
                                     </tr>
 
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="category.html">Sample Category Three</a></td>
+                                        <td><NavLink to="/category">Sample Category Three</NavLink></td>
                                     </tr>
                                 </tbody>
                             </table>

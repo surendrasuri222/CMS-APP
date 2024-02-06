@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard";
 import SignUp from "./components/SignUp";
 import './css/bootstrap.css';
 import './css/style.css';
+import Category from "./components/Category";
 function App() {
   return (
 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/category" element={<Category />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/pages" element={<Pages />} />
         <Route path="/users" element={<Users />} />
