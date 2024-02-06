@@ -1,4 +1,6 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+
 
 const Dashboard = () => {
     return (
@@ -8,18 +10,14 @@ const Dashboard = () => {
                     <div className="row">
                         <div className="col-md-4">
                             <div className="list-group">
-                                <a href="index.html" className="list-group-item active"
-                                ><i className="glyphicon glyphicon-dashboard"></i> Dashboard</a
-                                >
-                                <a href="pages.html" className="list-group-item"
-                                ><i className="glyphicon glyphicon-file"></i> Pages</a
-                                >
-                                <a href="categories.html" className="list-group-item"
-                                ><i className="glyphicon glyphicon-folder-open"></i> Categories</a
-                                >
-                                <a href="users.html" className="list-group-item"
-                                ><i className="glyphicon glyphicon-user"></i> User Accounts</a
-                                >
+                                <NavLink to="/dashboard" className="list-group-item active"
+                                ><i className="glyphicon glyphicon-dashboard"></i> Dashboard</NavLink>
+                                <NavLink to="/pages" className="list-group-item"
+                                ><i className="glyphicon glyphicon-file"></i> Pages</NavLink>
+                                <NavLink to="/categories" className="list-group-item"
+                                ><i className="glyphicon glyphicon-folder-open"></i> Categories</NavLink>
+                                <NavLink to="/users" className="list-group-item"
+                                ><i className="glyphicon glyphicon-user"></i> User Accounts</NavLink>
                             </div>
                         </div>
                         <div className="col-md-8">
@@ -35,36 +33,36 @@ const Dashboard = () => {
                                 </tr>
 
                                 <tr>
-                                    <td><a href="page.html">Sample Page One</a></td>
+                                    <td><NavLink to="/pages">Sample Page One</NavLink></td>
                                     <td>Category One</td>
                                     <td>John Wick</td>
                                 </tr>
 
                                 <tr>
-                                    <td><a href="page.html">Sample Page Two</a></td>
+                                    <td><NavLink to="/pages">Sample Page Two</NavLink></td>
                                     <td>Category Two</td>
                                     <td>Vicky Nash</td>
                                 </tr>
 
                                 <tr>
-                                    <td><a href="page.html">Sample Page Three</a></td>
+                                    <td><NavLink to="/pages">Sample Page Three</NavLink></td>
                                     <td>Category One</td>
                                     <td>Jenni lora</td>
                                 </tr>
 
                                 <tr>
-                                    <td><a href="page.html">Sample Page Four</a></td>
+                                    <td><NavLink to="/pages">Sample Page Four</NavLink></td>
                                     <td>Category Three</td>
                                     <td>Haley maya</td>
                                 </tr>
 
                                 <tr>
-                                    <td><a href="page.html">Sample Page Five</a></td>
+                                    <td><NavLink to="/pages">Sample Page Five</NavLink></td>
                                     <td>Category Two</td>
                                     <td>Austen Paige</td>
                                 </tr>
                             </table>
-                            <a className="btn btn-default" href="pages.html">View All Pages</a>
+                            <NavLink className="btn btn-default" to="/pages">View All Pages</NavLink>
                             <hr />
 
                             <h3>Latest Users</h3>
@@ -76,36 +74,36 @@ const Dashboard = () => {
                                 </tr>
 
                                 <tr>
-                                    <td><a href="user.html">Austen Paige</a></td>
+                                    <td><NavLink to="/users">Austen Paige</NavLink></td>
                                     <td>paige@info.com</td>
                                     <td>Admin</td>
                                 </tr>
 
                                 <tr>
-                                    <td><a href="user.html">Vicky Nash</a></td>
+                                    <td><NavLink to="/users">Vicky Nash</NavLink></td>
                                     <td>vicky@info.com</td>
                                     <td>Admin</td>
                                 </tr>
 
                                 <tr>
-                                    <td><a href="user.html">John Wick</a></td>
+                                    <td><NavLink to="/users">John Wick</NavLink></td>
                                     <td>wick@info.com</td>
                                     <td>Registered</td>
                                 </tr>
 
                                 <tr>
-                                    <td><a href="user.html">Haley maya</a></td>
+                                    <td><NavLink to="/users">Haley maya</NavLink></td>
                                     <td>maya@info.com</td>
                                     <td>Admin</td>
                                 </tr>
 
                                 <tr>
-                                    <td><a href="user.html">Jenni lora</a></td>
+                                    <td><NavLink to="/users">Jenni lora</NavLink></td>
                                     <td>jenni@info.com</td>
                                     <td>Registered</td>
                                 </tr>
                             </table>
-                            <a className="btn btn-default" href="users.html">View All Users</a>
+                            <NavLink className="btn btn-default" to="/users">View All Users</NavLink>
                             <hr />
                         </div>
                     </div>
