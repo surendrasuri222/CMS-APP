@@ -6,6 +6,7 @@ import Categories from "./components/Categories";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Dashboard from "./components/Dashboard";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/pages" element={<Pages />} />
         <Route path="/users" element={<Users />} />
