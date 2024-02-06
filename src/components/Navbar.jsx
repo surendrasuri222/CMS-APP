@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Navbar = () => {
@@ -18,27 +19,28 @@ const Navbar = () => {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <a className="navbar-brand" href="#">DCX CMS</a>
+                        {/* <a className="navbar-brand align-self-center" href="#">DCX CMS</a> */}
                     </div>
 
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul className="nav navbar-nav">
+                        <ul className="nav navbar-nav flex flex-row  d-flex justify-content-center">
+                            <li><a class="navbar-brand" href="#">DCX CMS</a></li>
                             <li className="active"><NavLink to="/dashboard">Dashboard</NavLink></li>
                             <li><NavLink to="/pages">Pages</NavLink></li>
                             <li><NavLink to="/categories">Categories</NavLink></li>
                             <li><NavLink to="/users">Users</NavLink></li>
                         </ul>
-                        <form className="navbar-form navbar-left" role="search">
+                        <form className="navbar-form navbar-left  d-flex justify-content-center" role="search">
                             <div className="form-group">
                                 <input type="text" className="form-control" placeholder="Search" />
                             </div>
                             <button type="submit" className="btn btn-default">Submit</button>
                         </form>
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-right flex flex-row  d-flex justify-content-center">
                             <li class="dropdown">
                                 <a
                                     href="#"
-                                    class="dropdown-toggle"
+                                    // class="dropdown-toggle"
                                     data-toggle="dropdown"
                                     role="button"
                                     aria-expanded="false"
@@ -46,11 +48,10 @@ const Navbar = () => {
                                 ></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="#">Profile</a></li>
+                                    <li><NavLink to="/logout">Logout</NavLink></li>
                                 </ul>
                             </li>
-                            <li><NavLink to="/logout">Logout</NavLink></li>
-                            <li><NavLink to="/">Login</NavLink></li>
-                            <li><NavLink to="/signup">SignUp</NavLink></li>
+                            <li><NavLink to="/login">Login</NavLink></li>
                         </ul>
                     </div>
                 </div>
