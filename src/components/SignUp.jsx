@@ -59,7 +59,7 @@ function SignUp() {
                     placeholder="Confirm Password"
                     required
                 />
-                <p>Already have an acoount?<NavLink to="/login"> Login</NavLink></p>
+                <p>Already have an acoount?<NavLink to="/"> Login</NavLink></p>
 
                 <button className="btn btn-lg btn-primary btn-block" type="submit">
                     Sign in
