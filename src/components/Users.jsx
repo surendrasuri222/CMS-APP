@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import $ from "jquery";
 import "tablesorter";
 
+import { NavLink } from 'react-router-dom';
+
 
 const Users = () => {
 
@@ -39,7 +41,7 @@ const Users = () => {
                             </div>
 
                             <ol class="breadcrumb">
-                                <li><a href="index.html">Dashboard</a></li>
+                                <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                                 <li class="active">Users</li>
                             </ol>
 
@@ -56,28 +58,28 @@ const Users = () => {
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="user.html">Austen Paige</a></td>
+                                        <td><NavLink to="/users/user">Austin DJ</NavLink></td>
                                         <td>paige@info.com</td>
                                         <td>Admin</td>
                                     </tr>
 
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="user.html">Vicky Nash</a></td>
+                                        <td><NavLink to="/users/user">Vicky Nash</NavLink></td>
                                         <td>vicky@info.com</td>
                                         <td>Admin</td>
                                     </tr>
 
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="user.html">John Wick</a></td>
+                                        <td><NavLink to="/users/user">John Wick</NavLink></td>
                                         <td>wick@info.com</td>
                                         <td>Registered</td>
                                     </tr>
 
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="user.html">Jenni lora</a></td>
+                                        <td><NavLink to="/users/user">Jenni lora</NavLink></td>
                                         <td>jenni@info.com</td>
                                         <td>Registered</td>
                                     </tr>
