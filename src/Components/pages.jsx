@@ -3,7 +3,7 @@ import React from 'react'
 
 const Pages = () => {
 
-      return (
+    return (
         <>
             <section>
                 <div className="container">
