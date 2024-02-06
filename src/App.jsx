@@ -8,19 +8,20 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Dashboard from "./components/Dashboard";
 import SignUp from "./components/SignUp";
-
+import './css/bootstrap.css';
+import './css/style.css';
 function App() {
   return (
 
     <>
       <Navbar />
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/pages" element={<Pages />} />
         <Route path="/users" element={<Users />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/users/user" element={<User />} />
         <Route path="/Categories" element={<Categories />} />
         <Route path="/logout" element={<Logout />} />
       </Routes>

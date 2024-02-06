@@ -49,7 +49,7 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             <li><NavLink to="/logout">Logout</NavLink></li>
-                            <li><NavLink to="/login">Login</NavLink></li>
+                            <li><NavLink to="/">Login</NavLink></li>
                             <li><NavLink to="/signup">SignUp</NavLink></li>
                         </ul>
                     </div>
