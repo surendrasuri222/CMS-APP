@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import $ from "jquery";
 import "tablesorter";
 import VerticalNav from './VerticalNav';
@@ -13,6 +13,10 @@ const Users = () => {
             sortList: [[0, 0], [1, 0]]
         });
     }, []);
+
+    const [users, setUsers] = useState([{
+        fullname: "Sourav Sagar", email: "Domp@", group: "Team DJ"
+    }])
 
 
     return (
@@ -93,41 +97,31 @@ const Users = () => {
                                 <table id="sort-table" class="table table-striped tablesorter">
                                     <thead>
                                         <tr>
-                                            <th><input type="checkbox" /></th>
+                                           
                                             <th>Full Name <i class="glyphicon glyphicon-chevron-down"></i></th>
                                             <th>Email <i class="glyphicon glyphicon-chevron-down"></i></th>
                                             <th>Group <i class="glyphicon glyphicon-chevron-down"></i></th>
+                                            <th>Action <i class="glyphicon glyphicon-chevron-down"></i></th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td><input type="checkbox" /></td>
-                                            <td><NavLink to="/users/user">Austin DJ</NavLink></td>
-                                            <td>paige@info.com</td>
-                                            <td>Admin</td>
-                                        </tr>
 
-                                        <tr>
-                                            <td><input type="checkbox" /></td>
-                                            <td><NavLink to="/users/user">Vicky Nash</NavLink></td>
-                                            <td>vicky@info.com</td>
-                                            <td>Admin</td>
-                                        </tr>
+                                    
+                                        
 
-                                        <tr>
-                                            <td><input type="checkbox" /></td>
-                                            <td><NavLink to="/users/user">John Wick</NavLink></td>
-                                            <td>wick@info.com</td>
-                                            <td>Registered</td>
-                                        </tr>
+                                    {
+                                        users.map((user) => {
+                                            return (
+                                                <tr className='p-2'>
+                                                    <td><NavLink to="/users/user">{user.fullname}</NavLink></td>
+                                                    <td>{user.email}</td>
+                                                    <td>{user.group}</td>
+                                                    <td><button className="btn btn-default glyphicon glyphicon-pencil p-2 me-2" >Edit</button><button className='btn btn-default glyphicon glyphicon-remove p-2 '>Delete</button></td>
+                                                </tr>)
 
-                                        <tr>
-                                            <td><input type="checkbox" /></td>
-                                            <td><NavLink to="/users/user">Jenni lora</NavLink></td>
-                                            <td>jenni@info.com</td>
-                                            <td>Registered</td>
-                                        </tr>
+                                        })
+                                    }
                                     </tbody>
                                 </table>
 
