@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom"
-import Category from './Category';
+import VerticalNav from './VerticalNav';
 
 export default function Categories() {
     return (
@@ -9,21 +8,10 @@ export default function Categories() {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-4">
-                            <div className="list-group">
-                                <a href="index.html" className="list-group-item">
-                                    <i className="glyphicon glyphicon-dashboard"></i> Dashboard
-                                </a>
-                                <a href="pages.html" className="list-group-item">
-                                    <i className="glyphicon glyphicon-file"></i> Pages
-                                </a>
-                                <a href="categories.html" className="list-group-item active">
-                                    <i className="glyphicon glyphicon-folder-open"></i> Categories
-                                </a>
-                                <a href="users.html" className="list-group-item">
-                                    <i className="glyphicon glyphicon-user"></i> User Accounts
-                                </a>
-                            </div>
+                            <VerticalNav />
                         </div>
+
+
                         <div className="col-md-8">
                             <div className="row">
                                 <div className="col-md-6">
@@ -33,7 +21,7 @@ export default function Categories() {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="btn-group actions" role="group" aria-label="...">
-                                        <a href="#" type="button" className="btn btn-default">
+                                        <a href="#" type="button" className="btn btn-default ">
                                             <i className="glyphicon glyphicon-plus"></i> New
                                         </a>
                                         <a href="#" type="button" className="btn btn-default">
@@ -47,7 +35,7 @@ export default function Categories() {
                             </div>
 
                             <ol className="breadcrumb">
-                                <li><a href="index.html">Dashboard</a></li>
+                                <li><a href="/dashboard">Dashboard</a></li>
                                 <li className="active">Categories</li>
                             </ol>
 
@@ -65,17 +53,17 @@ export default function Categories() {
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><NavLink to="/category">Sample Category One</NavLink></td>
+                                        <td><a href="/category">Sample Category One</a></td>
                                     </tr>
 
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><NavLink to="/category">Sample Category Two</NavLink></td>
+                                        <td><a href="/category">Sample Category Two</a></td>
                                     </tr>
 
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><NavLink to="/category">Sample Category Three</NavLink></td>
+                                        <td><a href="/category">Sample Category Three</a></td>
                                     </tr>
                                 </tbody>
                             </table>

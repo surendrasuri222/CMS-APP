@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import VerticalNav from './VerticalNav';
 
 
 const Pages = () => {
@@ -9,13 +10,10 @@ const Pages = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-4">
-                            <div className="list-group">
-                                <a href="index.html" className="list-group-item"><i className="glyphicon glyphicon-dashboard"></i> Dashboard</a>
-                                <a href="pages.html" className="list-group-item active"><i className="glyphicon glyphicon-file"></i> Pages</a>
-                                <a href="categories.html" className="list-group-item"><i className="glyphicon glyphicon-folder-open"></i> Categories</a>
-                                <a href="users.html" className="list-group-item"><i className="glyphicon glyphicon-user"></i> User Accounts</a>
-                            </div>
+
+                            <VerticalNav />
                         </div>
+
                         <div className="col-md-8">
                             <div className="row">
                                 <div className="col-md-6">
@@ -31,7 +29,7 @@ const Pages = () => {
                             </div>
 
                             <ol className="breadcrumb">
-                                <li><a href="index.html">Dashboard</a></li>
+                                <li><a href="/dashboard">Dashboard</a></li>
                                 <li className="active">Pages</li>
                             </ol>
 
@@ -48,31 +46,31 @@ const Pages = () => {
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="page.html">Sample Page One</a></td>
+                                        <td><a href="/pages/page">Sample Page One</a></td>
                                         <td>Category One</td>
                                         <td>John Wick</td>
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="page.html">Sample Page Two</a></td>
+                                        <td><a href="/pages/page">Sample Page Two</a></td>
                                         <td>Category Two</td>
                                         <td>Vicky Nash</td>
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="page.html">Sample Page Three</a></td>
+                                        <td><a href="/pages/page">Sample Page Three</a></td>
                                         <td>Category One</td>
                                         <td>Jenni Lora</td>
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="page.html">Sample Page Four</a></td>
+                                        <td><a href="/pages/page">Sample Page Four</a></td>
                                         <td>Category Three</td>
                                         <td>Haley Maya</td>
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td><a href="page.html">Sample Page Five</a></td>
+                                        <td><a href="/pages/page">Sample Page Five</a></td>
                                         <td>Category Two</td>
                                         <td>Austen Paige</td>
                                     </tr>
@@ -93,6 +91,7 @@ const Pages = () => {
                         </div>
                     </div>
                 </div>
+
             </section>
         </>
     )

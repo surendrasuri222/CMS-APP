@@ -105,7 +105,7 @@ function SignUp() {
                     value={confirmPassword}
                     onChange={handleConfirmPasswordChange}
                 />
-                <p>Already have an account?<NavLink to="/login"> Login</NavLink></p>
+                <p>Already have an account?<NavLink to="/"> Login</NavLink></p>
 
                 <button className="btn btn-lg btn-primary btn-block" type="submit">
                     Sign in

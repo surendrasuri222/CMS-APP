@@ -19,16 +19,18 @@ const Navbar = () => {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        {/* <a className="navbar-brand align-self-center" href="#">DCX CMS</a> */}
+
                     </div>
 
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav flex flex-row  d-flex justify-content-center">
                             <li><a class="navbar-brand" href="#">DCX CMS</a></li>
-                            <li className="active"><NavLink to="/dashboard">Dashboard</NavLink></li>
-                            <li><NavLink to="/pages">Pages</NavLink></li>
-                            <li><NavLink to="/categories">Categories</NavLink></li>
-                            <li><NavLink to="/users">Users</NavLink></li>
+
+                            <li><NavLink to="/dashboard" activeClassName="active">Dashboard</NavLink></li>
+                            <li><NavLink to="/pages" exact activeClassName="active">Pages</NavLink></li>
+
+                            <li><NavLink to="/categories" exact activeClassName="active">Categories</NavLink></li>
+                            <li><NavLink to="/users" exact activeClassName="active">Users</NavLink></li>
                         </ul>
                         <form className="navbar-form navbar-left  d-flex justify-content-center" role="search">
                             <div className="form-group">
@@ -51,7 +53,7 @@ const Navbar = () => {
                                     <li><NavLink to="/logout">Logout</NavLink></li>
                                 </ul>
                             </li>
-                            <li><NavLink to="/login">Login</NavLink></li>
+                            <li><NavLink to="/">Login</NavLink></li>
                         </ul>
                     </div>
                 </div>

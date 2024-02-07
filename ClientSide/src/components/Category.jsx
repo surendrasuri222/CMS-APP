@@ -15,7 +15,7 @@ const Category = () => {
                             </div>
 
                             <ol className="breadcrumb">
-                                <li><a href="index.html">Dashboard</a></li>
+                                <li><a href="/dashboard">Dashboard</a></li>
                                 <li className="active">Category</li>
                             </ol>
 

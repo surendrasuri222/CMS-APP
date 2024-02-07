@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Navbar from './components/Navbar';
 import Pages from './components/Pages';
 import Users from "./components/Users";
@@ -6,17 +7,23 @@ import User from "./components/User";
 import Categories from "./components/Categories";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
-import Dashboard from "./components/Dashboard";
+
 import SignUp from "./components/SignUp";
 import './css/bootstrap.css';
 import './css/style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Category from "./components/Category";
+import Page from "./components/Page";
+import Dashboard from "./components/Dashboard";
 function App() {
+  const [isLoggedIn, setLoggedIn] = useState(false);
   return (
 
     <>
       <Navbar />
+
       <Routes>
+
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/category" element={<Category />} />
@@ -26,6 +33,8 @@ function App() {
         <Route path="/users/user" element={<User />} />
         <Route path="/Categories" element={<Categories />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/pages/page" element={<Page />} />
+
       </Routes>
     </>
 
