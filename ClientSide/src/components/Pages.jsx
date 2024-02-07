@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import VerticalNav from './VerticalNav';
 
 
 const Pages = () => {
+
+    const [pages, setPages] = useState([{
+        BookTitle: "DomyData", Category: "Domp", Author: "Sorab"
+    }, {
+        BookTitle: "DomyData", Category: "Domp", Author: "Sorab"
+    }])
 
     return (
         <>
@@ -22,8 +28,6 @@ const Pages = () => {
                                 <div className="col-md-6">
                                     <div className="btn-group actions" role="group" aria-label="...">
                                         <a href="#" type="button" className="btn btn-default"><i className="glyphicon glyphicon-plus"></i> New</a>
-                                        <a href="#" type="button" className="btn btn-default"><i className="glyphicon glyphicon-pencil"></i> Edit</a>
-                                        <a href="#" type="button" className="btn btn-default"><i className="glyphicon glyphicon-remove"></i> Delete</a>
                                     </div>
                                 </div>
                             </div>
@@ -36,44 +40,26 @@ const Pages = () => {
                             <table id="sort-table" className="table table-striped tablesorter">
                                 <thead>
                                     <tr>
-                                        <th><input type="checkbox" /></th>
                                         <th>Page Title <i className="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Category <i className="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Author <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                        <th>Action <i className="glyphicon glyphicon-chevron-down"></i></th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td><input type="checkbox" /></td>
-                                        <td><a href="/pages/page">Sample Page One</a></td>
-                                        <td>Category One</td>
-                                        <td>John Wick</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" /></td>
-                                        <td><a href="/pages/page">Sample Page Two</a></td>
-                                        <td>Category Two</td>
-                                        <td>Vicky Nash</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" /></td>
-                                        <td><a href="/pages/page">Sample Page Three</a></td>
-                                        <td>Category One</td>
-                                        <td>Jenni Lora</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" /></td>
-                                        <td><a href="/pages/page">Sample Page Four</a></td>
-                                        <td>Category Three</td>
-                                        <td>Haley Maya</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" /></td>
-                                        <td><a href="/pages/page">Sample Page Five</a></td>
-                                        <td>Category Two</td>
-                                        <td>Austen Paige</td>
-                                    </tr>
+                                    {
+                                        pages.map((page) => {
+                                            return (
+                                                <tr className='p-2'>
+                                                    <td>{page.BookTitle}</td>
+                                                    <td>{page.Category}</td>
+                                                    <td>{page.Author}</td>
+                                                    <td><button className="btn btn-default glyphicon glyphicon-pencil p-2 me-2" >Edit</button><button className='btn btn-default glyphicon glyphicon-remove p-2 '>Delete</button></td>
+                                                </tr>)
+
+                                        })
+                                    }
                                 </tbody>
                             </table>
 
