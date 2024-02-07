@@ -12,7 +12,7 @@ const VerticalNav = ({ activeNavItem, onNavItemClick }) => {
                             <i className="glyphicon glyphicon-dashboard"></i> Dashboard
                         </NavLink>
                         <NavLink to="/pages" className="list-group-item">
-                            <i className="glyphicon glyphicon-file"></i> Pages
+                            <i className="glyphicon glyphicon-file"></i> Books
                         </NavLink>
                         <NavLink to="/categories" className="list-group-item">
                             <i className="glyphicon glyphicon-folder-open"></i> Categories
