@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import VerticalNav from './VerticalNav';
 import PageModal from './PageModal';
+import { NavLink } from 'react-router-dom';
 
 
 const Pages = () => {
@@ -58,7 +59,7 @@ const Pages = () => {
                                                     <td>{page.BookTitle}</td>
                                                     <td>{page.Category}</td>
                                                     <td>{page.Author}</td>
-                                                    <td><button className="btn btn-default glyphicon glyphicon-pencil p-2 me-2" >Edit</button><button className='btn btn-default glyphicon glyphicon-remove p-2 '>Delete</button></td>
+                                                    <td><NavLink to="/pages/edit"><button className="btn btn-default bi bi-pencil-square p-2 me-2" ></button></NavLink><button className='btn btn-default bi bi-trash3-fill p-2 '></button></td>
                                                 </tr>)
 
                                         })

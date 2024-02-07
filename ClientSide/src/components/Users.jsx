@@ -70,8 +70,7 @@ const Users = () => {
                                                         <td><NavLink to="/users/user">{user.fullname}</NavLink></td>
                                                         <td>{user.email}</td>
                                                         <td>{user.group}</td>
-                                                        <td><button className="btn btn-default glyphicon glyphicon-pencil p-2 me-2" >Edit</button><button className='btn btn-default glyphicon glyphicon-remove p-2 '>Delete</button></td>
-                                                    </tr>)
+                                                        <td><NavLink to="/users/edit"><button className="btn btn-default bi bi-pencil-square p-2 me-2" ></button></NavLink><button className='btn btn-default bi bi-trash3-fill p-2 '></button></td>                                                    </tr>)
 
                                             })
                                         }

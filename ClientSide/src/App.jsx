@@ -15,6 +15,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Category from "./components/Category";
 import Page from "./components/Page";
 import Dashboard from "./components/Dashboard";
+import EditUsers from "./components/EditUsers";
+import EditPages from "./components/EditPages";
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   return (
@@ -29,11 +31,14 @@ function App() {
         <Route path="/category" element={<Category />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/pages" element={<Pages />} />
+        <Route path="/pages/page" element={<Page />} />
+        <Route path="/pages/edit" element={<EditPages />} />
         <Route path="/users" element={<Users />} />
         <Route path="/users/user" element={<User />} />
+        <Route path="/users/edit" element={<EditUsers />} />
         <Route path="/Categories" element={<Categories />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/pages/page" element={<Page />} />
+
 
       </Routes>
     </>
