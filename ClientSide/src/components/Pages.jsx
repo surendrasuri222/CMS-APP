@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import VerticalNav from './VerticalNav';
+import PageModal from './PageModal';
 
 
 const Pages = () => {
@@ -27,7 +28,9 @@ const Pages = () => {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="btn-group actions" role="group" aria-label="...">
-                                        <a href="#" type="button" className="btn btn-default"><i className="glyphicon glyphicon-plus"></i> New</a>
+
+                                        {/* New Modal For Creating Pages */}
+                                        <PageModal />
                                     </div>
                                 </div>
                             </div>
