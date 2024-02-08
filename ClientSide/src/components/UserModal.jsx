@@ -43,10 +43,8 @@ export default function UserModal() {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Add New User</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                            <h3 className="modal-title d-flex mx-auto" id="exampleModalLabel">Add New User</h3>
+                            
                         </div>
                         <div className="modal-body">
                             <form onSubmit={handleSubmit}>
