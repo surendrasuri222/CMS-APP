@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import $ from "jquery";
 import "tablesorter";
-import VerticalNav from './VerticalNav';
 import UserModal from './UserModal';
 import { NavLink } from 'react-router-dom';
 
@@ -15,7 +14,7 @@ const Users = () => {
     }, []);
 
     const [users, setUsers] = useState([{
-        fullname: "Sourav Sagar", email: "Domp@", group: "Team DJ"
+        fullname: "Sourav Sagar", email: "Domp@", group: "Admin"
     }])
 
 

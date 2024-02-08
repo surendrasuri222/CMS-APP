@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const User = () => {
 
     const [user, setUsers] = useState([{
-        name: 'sourav', email: 'email.com', interests: ['DJ playing', 'Coding', 'Hiking'], age: '22', gender: 'male'
+        name: 'sourav', email: 'email.com', interests: ['DJ playing', 'Coding', 'Hiking'], age: '22', gender: 'male', group:'admin'
     }]);
 
     return (
@@ -43,6 +43,7 @@ const User = () => {
                                                 <p><strong>Email:</strong> {user.email}</p>
                                                 <p><strong>Gender:</strong> {user.gender}</p>
                                                 <p><strong>Age:</strong> {user.age}</p>
+                                                <p><strong>Group:</strong> {user.group}</p>
                                                 <p><strong>Interests:</strong></p>
                                                 <ul>
                                                     {user.interests.map((interest, i) => (
