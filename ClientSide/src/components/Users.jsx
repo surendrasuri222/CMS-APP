@@ -65,7 +65,7 @@ const Users = () => {
                                                     <td><NavLink to="/users/user">{user.fullname}</NavLink></td>
                                                     <td>{user.email}</td>
                                                     <td>{user.group}</td>
-                                                    <td><button className='btn btn-default bi bi-trash3-fill p-2 '></button></td>                                                    </tr>)
+                                                    <td className='ps-4'><button className='btn btn-default bi bi-trash3-fill p-2 '></button></td>                                                    </tr>)
 
                                         })
                                     }
