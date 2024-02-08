@@ -17,6 +17,7 @@ import Category from "./components/Category";
 import Dashboard from "./components/Dashboard";
 import EditUsers from "./components/EditUsers";
 import EditBooks from "./components/EditBooks";
+import Profile from "./components/Profile";
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/books/book" element={<Book />} />
         <Route path="/books/edit" element={<EditBooks />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/users/user" element={<User />} />
         <Route path="/users/edit" element={<EditUsers />} />
         <Route path="/Categories" element={<Categories />} />

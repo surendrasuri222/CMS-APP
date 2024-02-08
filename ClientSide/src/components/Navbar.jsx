@@ -38,22 +38,9 @@ const Navbar = () => {
                             </div>
                             <button type="submit" className="btn btn-default">Submit</button>
                         </form>
-                        <ul class="nav navbar-nav navbar-right flex flex-row  d-flex justify-content-center">
-                            <li class="dropdown">
-                                <a
-                                    href="#"
-                                    // class="dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    role="button"
-                                    aria-expanded="false"
-                                >My Account <span class="caret"></span
-                                ></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Profile</a></li>
-                                    <li><NavLink to="/logout">Logout</NavLink></li>
-                                </ul>
-                            </li>
-                            <li><NavLink to="/">Login</NavLink></li>
+                        <ul className="nav navbar-nav navbar-right flex flex-row  d-flex justify-content-center">
+                            <li><NavLink to="/profile" activeClassName="active">My Profile</NavLink></li>
+                            <li><NavLink to="#" exact activeClassName="active">Logout</NavLink></li>
                         </ul>
                     </div>
                 </div>
