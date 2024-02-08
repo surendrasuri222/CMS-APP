@@ -25,9 +25,7 @@ const Users = () => {
                 <div class="container">
                     <div class="row">
                         <div className="row">
-                            <div className="col-md-4">
-                                <VerticalNav />
-                            </div>
+                           
 
                             <div class="col-md-8">
                                 <div class="row">
@@ -70,7 +68,7 @@ const Users = () => {
                                                         <td><NavLink to="/users/user">{user.fullname}</NavLink></td>
                                                         <td>{user.email}</td>
                                                         <td>{user.group}</td>
-                                                        <td><NavLink to="/users/edit"><button className="btn btn-default bi bi-pencil-square p-2 me-2" ></button></NavLink><button className='btn btn-default bi bi-trash3-fill p-2 '></button></td>                                                    </tr>)
+                                                        <td><button className='btn btn-default bi bi-trash3-fill p-2 '></button></td>                                                    </tr>)
 
                                             })
                                         }
