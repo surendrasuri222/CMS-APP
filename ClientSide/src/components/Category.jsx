@@ -22,7 +22,7 @@ const Category = () => {
                             <table id="sort-table" className="table table-striped tablesorter">
                                 <thead>
                                     <tr>
-                                        <th><input type="checkbox" /></th>
+
                                         <th>Title <i className="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Category <i className="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Author <i className="glyphicon glyphicon-chevron-down"></i></th>
@@ -31,31 +31,31 @@ const Category = () => {
 
                                 <tbody>
                                     <tr>
-                                        <td><input type="checkbox" /></td>
+
                                         <td><a href="page.html">Sample Page One</a></td>
                                         <td>Category One</td>
                                         <td>John Wick</td>
                                     </tr>
                                     <tr>
-                                        <td><input type="checkbox" /></td>
+
                                         <td><a href="page.html">Sample Page Two</a></td>
                                         <td>Category Two</td>
                                         <td>Vicky Nash</td>
                                     </tr>
                                     <tr>
-                                        <td><input type="checkbox" /></td>
+
                                         <td><a href="page.html">Sample Page Three</a></td>
                                         <td>Category One</td>
                                         <td>Jenni Lora</td>
                                     </tr>
                                     <tr>
-                                        <td><input type="checkbox" /></td>
+
                                         <td><a href="page.html">Sample Page Four</a></td>
                                         <td>Category Three</td>
                                         <td>Haley Maya</td>
                                     </tr>
                                     <tr>
-                                        <td><input type="checkbox" /></td>
+
                                         <td><a href="page.html">Sample Page Five</a></td>
                                         <td>Category Two</td>
                                         <td>Austen Paige</td>
