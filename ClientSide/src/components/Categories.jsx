@@ -13,12 +13,9 @@ export default function Categories() {
     return (
         <>
             <section>
-                <div className="container">
+                <div className="container  shadow-lg p-3 mb-5 bg-white rounded p-5">
                     <div className="row">
-
-
-
-                        <div className="col-md-8  mx-auto mt-1 w-75">
+                        <div className="col-md-12">
                             <div className="row">
                                 <div className="col-md-6">
                                     <h1 className="book-header">
@@ -33,7 +30,7 @@ export default function Categories() {
                                 <li className="active">Categories</li>
                             </ol>
 
-                            <table id="sort-table" className="table table-striped tablesorter">
+                            <table id="sort-table" className="table table-striped tablesorter table-hover">
                                 <thead>
                                     <tr>
                                         <th>
@@ -42,6 +39,7 @@ export default function Categories() {
                                         </th>
                                         <th className='text-center'>
                                             Count
+                                            <i className="glyphicon glyphicon-chevron-down"></i>
                                         </th>
                                     </tr>
                                 </thead>

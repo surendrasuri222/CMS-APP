@@ -15,14 +15,9 @@ const Books = () => {
     return (
         <>
             <section>
-                <div className="container">
+                <div className="container shadow-lg p-3 mb-5 bg-white rounded p-5">
                     <div className="row">
-                        <div className="col-md-4">
-
-                            <VerticalNav />
-                        </div>
-
-                        <div className="col-md-8">
+                        <div className="col-md-12">
                             <div className="row">
                                 <div className="col-md-6">
                                     <h1 className="book-header"><i className="glyphicon glyphicon-file"></i> Books</h1>
@@ -41,7 +36,7 @@ const Books = () => {
                                 <li className="active">Books</li>
                             </ol>
 
-                            <table id="sort-table" className="table table-striped tablesorter">
+                            <table id="sort-table" className="table table-striped tablesorter table-hover">
                                 <thead>
                                     <tr>
                                         <th>Page Title <i className="glyphicon glyphicon-chevron-down"></i></th>
@@ -67,17 +62,19 @@ const Books = () => {
                                 </tbody>
                             </table>
 
-                            <nav aria-label="Page navigation">
-                                <ul className="pagination">
-                                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                                </ul>
-                            </nav>
+                            <div className='d-flex justify-content-center h-2'>
+                                <nav aria-label="Page navigation">
+                                    <ul className="pagination">
+                                        <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>

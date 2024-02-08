@@ -6,13 +6,9 @@ const Dashboard = () => {
     return (
         <>
             <section>
-                <div className="container">
+                <div className="container shadow-lg p-3 mb-5 bg-white rounded p-5">
                     <div className="row">
-                        <div className="col-md-4">
-                            <VerticalNav />
-                        </div>
-
-                        <div className="col-md-8">
+                        <div className="col-md-12">
                             <div className="row">
                                 <h1 className="page-header">
                                     <i className="glyphicon glyphicon-dashboard"></i> Dashboard
@@ -20,7 +16,7 @@ const Dashboard = () => {
 
                                 <div className="col-md-12">
                                     <h3>Latest Books</h3>
-                                    <table className="table table-striped">
+                                    <table className="table table-striped table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Book Title</th>
@@ -59,11 +55,14 @@ const Dashboard = () => {
 
 
 
+
+
+
                                 </div>
 
                                 <div className="col-md-12">
                                     <h3>Latest Users</h3>
-                                    <table className="table table-striped">
+                                    <table className="table table-striped table-hover">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>

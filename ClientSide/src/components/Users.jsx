@@ -21,12 +21,12 @@ const Users = () => {
     return (
         <>
             <section>
-                <div class="container">
+                <div class="container shadow-lg p-3 mb-5 bg-white rounded p-5">
                     <div class="row">
                         <div className="row">
-                           
 
-                            <div class="col-md-8">
+
+                            <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h1 class="page-header"><i class="glyphicon glyphicon-user"></i> Users</h1>
@@ -73,26 +73,27 @@ const Users = () => {
                                         }
                                     </tbody>
                                 </table>
-
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                                <div className="d-flex justify-content-center h-2 ">
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
 
                             </div>
                         </div>
