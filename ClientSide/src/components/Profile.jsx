@@ -5,22 +5,18 @@ import ProfileModal from './ProfileModal';
 const Profile = () => {
 
     const [user, setUsers] = useState([{
-        name: 'sourav', email: 'email.com', interests: ['DJ playing', 'Coding', 'Hiking'], age: '22', gender: 'male'
+        name: 'sourav', email: 'email.com', role: "Admin", interests: ['DJ playing', 'Coding', 'Hiking'], age: '22', gender: 'male'
     }]);
 
     return (
         <>
             <section>
-                <div className="container">
+                <div className="container shadow-lg p-3 mb-5 bg-white rounded">
                     <div className="row">
 
-
-
-
-
-                        <div className="col-md-8">
+                        <div className="col-md-12">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <h1 class="page-header"><i class="glyphicon glyphicon-user"></i> Welcome User!!!</h1>
                                 </div>
 
@@ -42,6 +38,7 @@ const Profile = () => {
                                             return <>
                                                 <p><strong>Name:</strong> {user.name}</p>
                                                 <p><strong>Email:</strong> {user.email}</p>
+                                                <p><strong>Role:</strong> {user.role}</p>
                                                 <p><strong>Gender:</strong> {user.gender}</p>
                                                 <p><strong>Age:</strong> {user.age}</p>
                                                 <p><strong>Interests:</strong></p>
