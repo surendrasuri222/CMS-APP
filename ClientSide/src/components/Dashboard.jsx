@@ -53,7 +53,7 @@ const Dashboard = () => {
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <NavLink className="btn btn-default" to="/pages">View All Books</NavLink>
+                                    <NavLink className="btn btn-default" to="/books">View All Books</NavLink>
                                     <hr />
 
 
