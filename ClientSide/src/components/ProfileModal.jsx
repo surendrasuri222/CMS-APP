@@ -67,7 +67,7 @@ export default function UserModal() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" className="btn btn-primary">Add User</button>
+                            <button type="button" className="btn btn-primary">Update</button>
                         </div>
                     </div>
                 </div>
