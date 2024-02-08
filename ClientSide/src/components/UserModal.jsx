@@ -1,16 +1,36 @@
-import React from "react";
+
+
+import React, { useState } from 'react';
+import Select from 'react-select';
 
 export default function UserModal() {
+    const [interests, setInterests] = useState([]);
+
+    const handleInterestChange = (selectedOptions) => {
+        console.log(selectedOptions);
+        setInterests(selectedOptions.map(option => option.value));
+    };
+
+    const interestOptions = [
+        { value: 'Sports', label: 'Sports' },
+        { value: 'Music', label: 'Music' },
+        { value: 'Art', label: 'Art' },
+        { value: 'Reading', label: 'Reading' },
+        { value: 'Cooking', label: 'Cooking' }
+    ];
+
     return (
         <>
-            <button type="button" className="btn btn-primary shadow - lg" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i className="glyphicon glyphicon-plus"></i> New</button>
+            <button type="button" className="btn btn-primary shadow-lg" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i className="glyphicon glyphicon-plus"></i> New</button>
 
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h3 className="modal-title d-flex justify-content-center" id="exampleModalLabel">Add New User</h3>
-
+                            <h5 className="modal-title" id="exampleModalLabel">Add New User</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div className="modal-body">
                             <form>
@@ -37,7 +57,13 @@ export default function UserModal() {
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="interests" className="col-form-label">Interests:</label>
-                                    <textarea className="form-control" id="interests" rows="5" placeholder="Enter your interests"></textarea>
+                                    <Select
+                                        id="interests"
+                                        isMulti
+                                        options={interestOptions}
+                                        onChange={handleInterestChange}
+                                        closeMenuOnSelect={false}
+                                    />
                                 </div>
                             </form>
                         </div>
