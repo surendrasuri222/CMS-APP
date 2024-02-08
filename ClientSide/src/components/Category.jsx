@@ -1,6 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect } from 'react';
+import $ from "jquery"
+import "tablesorter";
+
 
 const Category = () => {
+    useEffect(() => {
+        $("#sort-table").tablesorter({
+            sortList: [[0, 0], [1, 0]]
+        });
+    }, []);
 
     return (
         <>
