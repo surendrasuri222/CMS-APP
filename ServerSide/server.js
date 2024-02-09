@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
     })
 })
 
-app
+
 
 app.use('/api', router)
 connectDB()
