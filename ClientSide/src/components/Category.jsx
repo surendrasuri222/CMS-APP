@@ -28,11 +28,11 @@ const Category = () => {
                                 <li className="active">Category</li>
                             </ol>
 
-                            <table id="sort-table" className="table table-striped tablesorter">
+                            <table id="sort-table" className="table table-striped tablesorter table-hover">
                                 <thead>
                                     <tr>
 
-                                        <th>Title <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                        <th>Title  <i className="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Category <i className="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Author <i className="glyphicon glyphicon-chevron-down"></i></th>
                                     </tr>
