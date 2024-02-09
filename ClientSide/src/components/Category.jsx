@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect } from 'react';
 import $ from "jquery"
 import "tablesorter";
+import { NavLink } from 'react-router-dom';
 
 
 const Category = () => {
@@ -28,11 +29,11 @@ const Category = () => {
                                 <li className="active">Category</li>
                             </ol>
 
-                            <table id="sort-table" className="table table-striped tablesorter">
+                            <table id="sort-table" className="table table-striped tablesorter table-hover">
                                 <thead>
                                     <tr>
 
-                                        <th>Title <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                        <th>Title  <i className="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Category <i className="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Author <i className="glyphicon glyphicon-chevron-down"></i></th>
                                     </tr>
@@ -41,31 +42,31 @@ const Category = () => {
                                 <tbody>
                                     <tr>
 
-                                        <td><a href="page.html">Sample Page One</a></td>
+                                        <td><NavLink to="/Page">Sample Page One</NavLink></td>
                                         <td>Category One</td>
                                         <td>John Wick</td>
                                     </tr>
                                     <tr>
 
-                                        <td><a href="page.html">Sample Page Two</a></td>
+                                        <td><NavLink to="/Page">Sample Page Two</NavLink></td>
                                         <td>Category Two</td>
                                         <td>Vicky Nash</td>
                                     </tr>
                                     <tr>
 
-                                        <td><a href="page.html">Sample Page Three</a></td>
+                                        <td><NavLink to="/Page">Sample Page Three</NavLink></td>
                                         <td>Category One</td>
                                         <td>Jenni Lora</td>
                                     </tr>
                                     <tr>
 
-                                        <td><a href="page.html">Sample Page Four</a></td>
+                                        <td><NavLink to="/Page">Sample Page Four</NavLink></td>
                                         <td>Category Three</td>
                                         <td>Haley Maya</td>
                                     </tr>
                                     <tr>
 
-                                        <td><a href="page.html">Sample Page Five</a></td>
+                                        <td><NavLink to="/Page">Sample Page Five</NavLink></td>
                                         <td>Category Two</td>
                                         <td>Austen Paige</td>
                                     </tr>

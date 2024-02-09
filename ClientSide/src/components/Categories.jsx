@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import $ from "jquery"
 import "tablesorter";
+import { NavLink } from 'react-router-dom';
 
 export default function Categories() {
 
@@ -47,19 +48,19 @@ export default function Categories() {
                                 <tbody>
                                     <tr>
 
-                                        <td><a href="/category">Sample Category Two</a></td>
+                                        <td><NavLink to="/Category">Sample Category Two</NavLink></td>
                                         <td className='text-center'>2</td>
                                     </tr>
 
                                     <tr>
 
-                                        <td><a href="/category">Sample Category One</a></td>
+                                        <td><NavLink to="/category">Sample Category One</NavLink></td>
                                         <td className='text-center'>4</td>
                                     </tr>
 
                                     <tr>
 
-                                        <td><a href="/category">Sample Category Three</a></td>
+                                        <td><NavLink to="/category">Sample Category Three</NavLink></td>
                                         <td className='text-center'>3</td>
                                     </tr>
                                 </tbody>
