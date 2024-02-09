@@ -62,7 +62,7 @@ function Signin() {
             <div className="card-form">
                 <div className='card-header'>
                     <div className='lock-icons'>
-                        <i class="fa-solid fa-lock"></i>
+                        <i className="fa-solid fa-lock"></i>
                     </div>
                 </div>
                 <form className='form' onSubmit={handleSubmit}>

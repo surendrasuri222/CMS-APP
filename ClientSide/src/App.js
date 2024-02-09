@@ -8,7 +8,7 @@ import User from "./components/User";
 import Categories from "./components/Categories";
 import Signin from "./components/Signin";
 import Logout from "./components/Logout";
-import SignUp from "./components/Signup";
+import SignUp from "./components/SignUp";
 import './css/bootstrap.css';
 import './css/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
