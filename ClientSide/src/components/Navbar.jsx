@@ -1,8 +1,15 @@
 import { NavLink } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom'
 
 
 const Navbar = () => {
+    const navigate = useNavigate()
+
+    const handleLogOut = () => {
+        localStorage.clear()
+        navigate("/")
+    }
     return (
         <div>
             <nav className="navbar navbar-default">
@@ -39,9 +46,10 @@ const Navbar = () => {
                             <button type="submit" className="btn btn-default">Submit</button>
                         </form>
                         <ul className="nav navbar-nav navbar-right flex flex-row  d-flex justify-content-center">
-                            <li><NavLink to="/profile" activeClassName="active">My Profile</NavLink></li>
-                            <li><NavLink to="#" exact activeClassName="active">Logout</NavLink></li>
+                            <li><NavLink to="/userprofile" activeClassName="active">My Profile</NavLink></li>
+                            <li><button className='btn btn-primary' onClick={handleLogOut}>Logout</button></li>
                         </ul>
+
                     </div>
                 </div>
             </nav>

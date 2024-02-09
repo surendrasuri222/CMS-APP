@@ -1,118 +1,133 @@
-import React, { useState } from "react";
+
 import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+import '../css/index.css';
+import '../css/App.css';
 
-function SignUp() {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleFirstNameChange = (e) => {
-        setFirstName(e.target.value);
-    };
+function Signup() {
+    const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
 
-    const handleLastNameChange = (e) => {
-        setLastName(e.target.value);
-    };
+    const [data, setData] = useState({
+        name: "",
+        email: "",
+        password: "",
+        confirmpassword: ""
+    })
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
+    const handleOnChange = (e) => {
+        const { name, value } = e.target
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
+        setData((preve) => {
+            return {
+                ...preve,
+                [name]: value
+            }
+        })
+    }
+    console.log("data", data)
 
-    const handleConfirmPasswordChange = (e) => {
-        setConfirmPassword(e.target.value);
-    };
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if (data.password !== data.confirmpassword) {
+            toast.error("Password and confirm password must be same !")
+            return
+        }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add your sign up logic here, such as calling an API
-        console.log('First Name:', firstName);
-        console.log('Last Name:', lastName);
-        console.log('Email:', email);
-        console.log('Password:', password);
-        console.log('Confirm Password:', confirmPassword);
-    };
+        setLoading(true)
+        const response = await fetch("http://localhost:4000/api/signup", {
+            method: "post",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        const dataResponse = await response.json()
+        setLoading(false)
+        console.log("dataResponse", dataResponse)
+
+        if (dataResponse.error) {
+            toast.error(dataResponse.message)
+        }
+
+        if (dataResponse.success) {
+            toast.success(dataResponse.message)
+            setData({
+                name: "",
+                email: "",
+                password: "",
+                confirmPassword: ""
+            })
+            navigate('/')
+        }
+
+    }
+
+
 
     return (
-        <div className="container">
-            <form onSubmit={handleSubmit} className="form-signin">
-                <h2 className="form-signin-heading text-center">Sign Up</h2>
-                <label htmlFor="inputFirstName" className="sr-only">
-                    First Name
-                </label>
-                <input
-                    type="text"
-                    id="inputFirstName"
-                    className="form-control"
-                    placeholder="First Name"
-                    required
-                    autoFocus
-                    value={firstName}
-                    onChange={handleFirstNameChange}
-                />
-                <label htmlFor="inputLastName" className="sr-only">
-                    Last Name
-                </label>
-                <input
-                    type="text"
-                    id="inputLastName"
-                    className="form-control"
-                    placeholder="Last Name"
-                    required
-                    autoFocus
-                    value={lastName}
-                    onChange={handleLastNameChange}
-                />
-                <label htmlFor="inputEmail" className="sr-only">
-                    Email address
-                </label>
-                <input
-                    type="email"
-                    id="inputEmail"
-                    className="form-control"
-                    placeholder="Email address"
-                    required
-                    autoFocus
-                    value={email}
-                    onChange={handleEmailChange}
-                />
-                <label htmlFor="inputPassword" className="sr-only">
-                    Password
-                </label>
-                <input
-                    type="password"
-                    id="inputPassword"
-                    className="form-control"
-                    placeholder="Password"
-                    required
-                    value={password}
-                    onChange={handlePasswordChange}
-                />
-                <label htmlFor="inputConfirmPassword" className="sr-only">
-                    Confirm Password
-                </label>
-                <input
-                    type="password"
-                    id="inputConfirmPassword"
-                    className="form-control"
-                    placeholder="Confirm Password"
-                    required
-                    value={confirmPassword}
-                    onChange={handleConfirmPasswordChange}
-                />
-                <p>Already have an account?<NavLink to="/"> Login</NavLink></p>
+        <div className="h-screen-center">
+            <div className="card-form">
+                <div className='card-header'>
+                    <div className='lock-icons'>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+                <form className='form' onSubmit={handleSubmit}>
+                    <div className='form-element'>
+                        <label htmlFor="name">Full Name :</label>
+                        <div className="input-container">
+                            <input type='text' placeholder="Enter your Full Name" value={data.name} name="name" id="name" disabled={loading} onChange={handleOnChange} />
+                        </div>
+                    </div>
+                    <div className='form-element'>
+                        <label htmlFor="email">Email :</label>
+                        <div className="input-container">
+                            <input type='email' placeholder="Enter your Email" value={data.email} name="email" id="email" disabled={loading} onChange={handleOnChange} />
+                        </div>
+                    </div>
+                    <div className='form-element'>
+                        <label htmlFor="password">Password :</label>
+                        <div className="input-container">
+                            <input
+                                type='password'
+                                id="password"
+                                name="password"
+                                value={data.password}
+                                disabled={loading}
+                                onChange={handleOnChange}
+                                className="form-control"
+                                placeholder="Enter your password"
+                            />
+                        </div>
+                    </div>
+                    <div className='form-element'>
+                        <label htmlFor="confirmpassword">Confirm Password :</label>
+                        <div className="input-container">
+                            <input
+                                type='password'
+                                id="confirmpassword"
+                                name="confirmpassword"
+                                value={data.confirmpassword}
+                                disabled={loading}
+                                onChange={handleOnChange}
+                                className="form-control"
+                                placeholder="Enter your Confirm Password"
+                            />
+                        </div>
+                    </div>
 
-                <button className="btn btn-lg btn-primary btn-block" type="submit">
-                    Sign in
-                </button>
-            </form>
+                    <button className="btn-sign" >{loading ? "Loading..." : "Sign Up"}</button>
+                    <p>Already have an account?<NavLink to="/" className="link"> Sign In</NavLink></p>
+
+                </form>
+            </div>
         </div>
     );
 }
 
-export default SignUp;
+export default Signup;
+
