@@ -1,8 +1,8 @@
 import React from "react"
-const Book = () => {
+const Page = () => {
     return (
-        <h1>This is Book component</h1>
+        <h1>This is Page component</h1>
 
     )
 }
-export default Book;
+export default Page;

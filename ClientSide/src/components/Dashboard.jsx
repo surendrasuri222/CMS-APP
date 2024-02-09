@@ -15,41 +15,41 @@ const Dashboard = () => {
                                 </h1>
 
                                 <div className="col-md-12">
-                                    <h3>Latest Books</h3>
+                                    <h3>Latest Pages</h3>
                                     <table className="table table-striped table-hover">
                                         <thead>
                                             <tr>
-                                                <th>Book Title</th>
+                                                <th>Page Title</th>
                                                 <th>Category</th>
                                                 <th>Author</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><NavLink to="/pages/page">Sample Book One</NavLink></td>
+                                                <td><NavLink to="/pages/page">Sample Page One</NavLink></td>
                                                 <td>Category One</td>
                                                 <td>John Wick</td>
                                             </tr>
                                             <tr>
-                                                <td><NavLink to="/pages/page">Sample Book Three</NavLink></td>
+                                                <td><NavLink to="/pages/page">Sample Page Three</NavLink></td>
                                                 <td>Category One</td>
                                                 <td>Jenni lora</td>
                                             </tr>
 
                                             <tr>
-                                                <td><NavLink to="/pages/page">Sample Book Four</NavLink></td>
+                                                <td><NavLink to="/pages/page">Sample Page Four</NavLink></td>
                                                 <td>Category Three</td>
                                                 <td>Haley maya</td>
                                             </tr>
 
                                             <tr>
-                                                <td><NavLink to="/pages/page">Sample Book Five</NavLink></td>
+                                                <td><NavLink to="/pages/page">Sample Page Five</NavLink></td>
                                                 <td>Category Two</td>
                                                 <td>Austen Paige</td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <NavLink className="btn btn-default" to="/books">View All Books</NavLink>
+                                    <NavLink className="btn btn-default" to="/pages">View All Pages</NavLink>
                                     <hr />
 
 

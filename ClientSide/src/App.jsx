@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Navbar from './components/Navbar';
-import Books from './components/Books';
-import Book from "./components/Book";
+import Pages from './components/Pages';
+import Page from "./components/Page";
 import Users from "./components/Users";
 import User from "./components/User";
 import Categories from "./components/Categories";
@@ -16,8 +16,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Category from "./components/Category";
 import Dashboard from "./components/Dashboard";
 import EditUsers from "./components/EditUsers";
-import EditBooks from "./components/EditBooks";
 import Profile from "./components/Profile";
+import EditPages from "./components/EditPages";
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   return (
@@ -31,9 +31,9 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/category" element={<Category />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/books" element={<Books />} />
-        <Route path="/books/book" element={<Book />} />
-        <Route path="/books/edit" element={<EditBooks />} />
+        <Route path="/pages" element={<Pages />} />
+        <Route path="/pages/page" element={<Page />} />
+        <Route path="/pages/edit" element={<EditPages />} />
         <Route path="/users" element={<Users />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/users/user" element={<User />} />
