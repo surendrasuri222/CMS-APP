@@ -25,16 +25,20 @@ const Users = () => {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="row">
-                                <div className="col-md-6">
-                                    <h1 className="book-header"><i className="glyphicon glyphicon-file"></i> Users</h1>
+                                <div className="col-md-12">
+                                    <h1 className="book-header">
+                                        <div className="row">
+                                            <div className=" col xs={6} sm={6} md={6} lg={6}">
+                                                <i className="glyphicon glyphicon-file"></i> Users
+                                            </div>
+                                            <div className="col xs={6} sm={6} md={6} lg={6} d-flex flex-row-reverse">
+                                                <UserModal />
+                                            </div>
+                                        </div>
+                                    </h1>
                                 </div>
-                                <div className="col-md-6">
-                                    <div className="btn-group actions" role="group" aria-label="...">
 
-                                        {/* New Modal For Creating Books */}
-                                        <UserModal />
-                                    </div>
-                                </div>
+
                             </div>
 
                             <ol class="breadcrumb">
