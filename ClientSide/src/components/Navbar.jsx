@@ -34,7 +34,7 @@ const Navbar = () => {
                             <li><a class="navbar-brand" href="#">DCX CMS</a></li>
 
                             <li><NavLink to="/dashboard" activeClassName="active">Dashboard</NavLink></li>
-                            <li><NavLink to="/books" exact activeClassName="active">Books</NavLink></li>
+                            <li><NavLink to="/pages" exact activeClassName="active">Pages</NavLink></li>
 
                             <li><NavLink to="/categories" exact activeClassName="active">Categories</NavLink></li>
                             <li><NavLink to="/users" exact activeClassName="active">Users</NavLink></li>

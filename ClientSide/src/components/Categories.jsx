@@ -18,7 +18,7 @@ export default function Categories() {
                         <div className="col-md-12">
                             <div className="row">
                                 <div className="col-md-6">
-                                    <h1 className="book-header">
+                                    <h1 className="page-header">
                                         <i className="glyphicon glyphicon-folder-open"></i> Categories
                                     </h1>
                                 </div>
@@ -66,7 +66,7 @@ export default function Categories() {
                             </table>
 
                             <div className="d-flex justify-content-center h-2 ">
-                                <nav className='mx-auto p-2' aria-label="Book navigation">
+                                <nav className='mx-auto p-2' aria-label="Page navigation">
                                     <ul className="pagination">
                                         <li>
                                             <a href="#" aria-label="Previous">
