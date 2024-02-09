@@ -15,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Category from "./components/Category";
 import Dashboard from "./components/Dashboard";
 import EditUsers from "./components/EditUsers";
-import Profile from "./components/Profile";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Userprofile from "./components/Userprofile";
@@ -39,7 +39,6 @@ function App() {
         <Route path="/pages/page" element={<Page />} />
         {/* <Route path="/pages/edit" element={<EditPages />} /> */}
         <Route path="/users" element={<Users />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/userprofile" element={<Userprofile />} />
         <Route path="/users/user" element={<User />} />
         <Route path="/users/edit" element={<EditUsers />} />

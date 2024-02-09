@@ -92,7 +92,12 @@ function Userprofile() {
                                     <p><strong>Gender:</strong> {data?.gender}</p>
                                     <p><strong>Age:</strong> {data?.age}</p>
                                     <p><strong>Interests:</strong></p>
-                                    
+                                    {/* <ul>
+                                        {data.interests.map((interest, i) => (
+                                            <li key={i}>{interest}</li>
+                                        ))}
+                                    </ul> */}
+
 
                                 </div>
                                 <div class="col-md-6">
