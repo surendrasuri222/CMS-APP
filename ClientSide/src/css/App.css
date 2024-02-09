@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
+
 }
 
 .card-form {
@@ -13,6 +15,8 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: -50px;
+  
 }
 
 /* .lock-icons {
@@ -37,12 +41,12 @@
 .lock-icons {
   width: 60px;
   height: 60px;
-  color: rgb(57, 57, 141);
+  color: #2fa4e7;
   justify-content: center;
   align-items: center;
   padding: 15px;
   border-radius: 50px;
-  border: 2px solid rgb(57, 57, 141);
+  border: 2px solid #2fa4e7;
   margin: 0 auto;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -100,7 +104,7 @@
   width: fit-content;
   border-radius: 5px;
   border: none;
-  background-color: rgb(57, 57, 141);
+  background-color:#2fa4e7;
   color: white;
   letter-spacing: 1px;
   margin: 7px auto;
@@ -109,7 +113,7 @@
 }
 
 .form button:hover {
-  background-color: rgb(49, 49, 122);
+  background-color: #2fa4e7;
   transform: scale(1.1);
 }
 
@@ -129,7 +133,7 @@
   width: 50px;
   height: 50px;
   padding: 20px;
-  border: 2px solid rgb(49, 49, 122);
+  border: 2px solid #2fa4e7;
   border-radius: 50px;
   margin: auto;
 }
