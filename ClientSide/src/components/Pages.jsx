@@ -80,6 +80,9 @@ const Pages = () => {
                 </div>
 
             </section>
+            <footer className="text-center">
+                <p>Copyright 2017, All Rights Reserved</p>
+            </footer>
         </>
     )
 }

@@ -8,7 +8,7 @@ import User from "./components/User";
 import Categories from "./components/Categories";
 import Signin from "./components/Signin";
 import Logout from "./components/Logout";
-import SignUp from "./components/Signup";
+import Signup from "./components/SignUp";
 import './css/bootstrap.css';
 import './css/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -32,7 +32,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Signin />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/category" element={<Category />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/pages" element={<Pages />} />
