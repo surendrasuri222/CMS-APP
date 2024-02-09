@@ -78,19 +78,19 @@ function Signup() {
                 </div>
                 <form className='form' onSubmit={handleSubmit}>
                     <div className='form-element'>
-                        <label htmlFor="name">Full Name :</label>
+                        <label htmlFor="name">Full Name </label>
                         <div className="input-container">
                             <input type='text' placeholder="Enter your Full Name" value={data.name} name="name" id="name" disabled={loading} onChange={handleOnChange} />
                         </div>
                     </div>
                     <div className='form-element'>
-                        <label htmlFor="email">Email :</label>
+                        <label htmlFor="email">Email </label>
                         <div className="input-container">
                             <input type='email' placeholder="Enter your Email" value={data.email} name="email" id="email" disabled={loading} onChange={handleOnChange} />
                         </div>
                     </div>
                     <div className='form-element'>
-                        <label htmlFor="password">Password :</label>
+                        <label htmlFor="password">Password </label>
                         <div className="input-container">
                             <input
                                 type='password'
@@ -105,7 +105,7 @@ function Signup() {
                         </div>
                     </div>
                     <div className='form-element'>
-                        <label htmlFor="confirmpassword">Confirm Password :</label>
+                        <label htmlFor="confirmpassword">Confirm Password </label>
                         <div className="input-container">
                             <input
                                 type='password'
