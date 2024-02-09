@@ -1,9 +1,39 @@
-
-
 import React, { useState } from 'react';
-import Select from 'react-select';
+// import Select from 'react-select';
+import axios from "axios";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function UserModal() {
+
+    const [user, setUser] = useState({
+        name: "",
+        email: "",
+        password: ""
+        // group: ""
+    })
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setUser({ ...user, [name]: value });
+        console.log(event.target.value);
+    }
+
+    const addUser = () => {
+
+        axios.post("http://localhost:5000/api/users/add", user)
+            .then((users) => {
+                // setUsers(users.data)
+                console.log(users)
+                alert(`User created successfully`)
+                Navigate("")
+            })
+            .catch((err) => {
+                console.log(`User cannot be added: ${err}`)
+            })
+    }
+    // adding the user
+
+
     const [interests, setInterests] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
 
@@ -44,32 +74,32 @@ export default function UserModal() {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h3 className="modal-title d-flex mx-auto" id="exampleModalLabel">Add New User</h3>
-                            
+
                         </div>
                         <div className="modal-body">
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <label htmlFor="fullName" className="col-form-label">*Full Name:</label>
-                                    <input type="text" className="form-control" id="fullName" required />
+                                    <input type="text" className="form-control" id="fullName" name="name" value={user.name} onChange={handleChange} required />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="email" className="col-form-label">*Email:</label>
-                                    <input type="email" className="form-control" id="email" required />
+                                    <input type="email" className="form-control" id="email" name="email" value={user.email} onChange={handleChange} required />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="password" className="col-form-label">*Password:</label>
-                                    <input type="password" className="form-control" id="password" required />
+                                    <input type="password" className="form-control" id="password" name="password" value={user.password} onChange={handleChange} required />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="group" className="col-form-label">*Group:</label>
-                                    <input type="text" className="form-control" id="group" required />
+                                    <input type="text" className="form-control" id="group" name="group" value={user.group} onChange={handleChange} />
                                 </div>
-                                
-                                
+
+
 
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" className="btn btn-primary">Add User</button>
+                                    <button type="submit" className="btn btn-primary" onClick={addUser}>Add User</button>
                                 </div>
                             </form>
                         </div>
