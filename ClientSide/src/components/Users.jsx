@@ -20,7 +20,7 @@ const Users = () => {
     useEffect(() => {
 
         // Fetching the data using axios
-        axios.get("http://localhost:5000/api/users")
+        axios.get("http://localhost:4000/api/users")
             .then((users) => {
                 setUsers(users.data)
                 // console.log(users)
@@ -38,7 +38,7 @@ const Users = () => {
         console.log(id);
 
         if (window.confirm(`Are you sure you want to delete this user?`)) {
-            axios.delete(`http://localhost:5000/api/users/${id}`)
+            axios.delete(`http://localhost:4000/api/users/${id}`)
                 .then((response) => {
                     setUsers(users.filter((user) => {
                         return user._id !== id;
@@ -100,7 +100,6 @@ const Users = () => {
                                                     <td>{user.email}</td>
                                                     <td>{user.email}</td>
                                                     <td><button className='btn btn-default bi bi-trash3-fill p-2' onClick={() => deleteHandler(user._id)}></button></td></tr>)
-
                                         })
                                     }
                                 </tbody>
