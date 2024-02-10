@@ -3,6 +3,7 @@ import $ from "jquery";
 import "tablesorter";
 import UserModal from './UserModal';
 import { NavLink } from 'react-router-dom';
+import axios from "axios";
 
 
 const Users = () => {
@@ -13,10 +14,43 @@ const Users = () => {
         });
     }, []);
 
-    const [users, setUsers] = useState([{
-        fullname: "Sourav Sagar", email: "Domp@", group: "Admin"
-    }])
+    const [users, setUsers] = useState([]);
 
+    // const { id } = useParams();
+    useEffect(() => {
+
+        // Fetching the data using axios
+        axios.get("http://localhost:4000/api/users")
+            .then((users) => {
+                setUsers(users.data)
+                // console.log(users)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        // console.log(users)
+
+    }, [])
+
+    // deleting the user
+    const deleteHandler = (id) => {
+
+        console.log(id);
+
+        if (window.confirm(`Are you sure you want to delete this user?`)) {
+            axios.delete(`http://localhost:4000/api/users/${id}`)
+                .then((response) => {
+                    setUsers(users.filter((user) => {
+                        return user._id !== id;
+                    }))
+                    alert(`User deleted successfully`)
+                    console.log(`User with id ${id} has been deleted`)
+                })
+                .catch((err) => {
+                    console.log(`Error deleting the user`)
+                })
+        }
+    }
 
     return (
         <>
@@ -66,11 +100,10 @@ const Users = () => {
                                         users.map((user) => {
                                             return (
                                                 <tr className='p-2'>
-                                                    <td><NavLink to="/users/user">{user.fullname}</NavLink></td>
+                                                    <td><NavLink to="/users/user">{user.email}</NavLink></td>
                                                     <td>{user.email}</td>
-                                                    <td>{user.group}</td>
-                                                    <td className='ps-4'><button className='btn btn-default bi bi-trash3-fill p-2 '></button></td>                                                    </tr>)
-
+                                                    <td>{user.email}</td>
+                                                    <td><button className='btn btn-default bi bi-trash3-fill p-2' onClick={() => deleteHandler(user._id)}></button></td></tr>)
                                         })
                                     }
                                 </tbody>

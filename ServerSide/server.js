@@ -4,6 +4,8 @@ const dotenv = require('dotenv')
 dotenv.config()
 const connectDB = require("./DataBase/database")
 const router = require("./routes/authroute")
+const userRouter = require("./routes/userRouter")
+// const User = require("./models/usermodel");
 
 const app = express()
 app.use(cors())
@@ -20,6 +22,7 @@ app.get("/", (req, res) => {
 
 
 
+app.use("/api/users", userRouter);
 app.use('/api', router)
 connectDB()
 app.listen(PORT, () => {
