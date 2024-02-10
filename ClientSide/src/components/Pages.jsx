@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import VerticalNav from './VerticalNav';
-import PageModal from './PageModal';
 import { NavLink } from 'react-router-dom';
 
 
