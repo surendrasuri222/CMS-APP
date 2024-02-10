@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import VerticalNav from './VerticalNav';
 import PageModal from './PageModal';
 import { NavLink } from 'react-router-dom';
 
@@ -26,7 +26,8 @@ const Pages = () => {
                                     <div className="btn-group actions" role="group" aria-label="...">
 
                                         {/* New Modal For Creating Pages */}
-                                        <PageModal />
+                                        {/* <PageModal /> */}
+                                        <NavLink to="/pages/add"><button type="button" class="btn btn-primary shadow-lg"><i className="glyphicon glyphicon-plus"></i> New</button></NavLink>
                                     </div>
                                 </div>
                             </div>

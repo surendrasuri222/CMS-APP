@@ -15,11 +15,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Category from "./components/Category";
 import Dashboard from "./components/Dashboard";
 import EditUsers from "./components/EditUsers";
-
+// import Profile from "./components/Profile";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Userprofile from "./components/Userprofile";
 import ProfileEdit from "./components/ProfileEdit";
+import EditPage from "./components/EditPage";
+import NewUser from "./components/NewUser";
+import NewPage from "./components/NewPage";
 
 
 function App() {
@@ -38,8 +41,13 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/pages" element={<Pages />} />
         <Route path="/pages/page" element={<Page />} />
+        <Route path="/pages/edit" element={<EditPage />} />
+        <Route path="/pages/add" element={<NewPage />} />
         {/* <Route path="/pages/edit" element={<EditPages />} /> */}
         <Route path="/users" element={<Users />} />
+        {/* <Route path="/users/edit" element={<EditUsers />} /> */}
+        <Route path="/users/add" element={<NewUser />} />
+        {/* <Route path="/profile" element={<Profile />} /> */}
 
         <Route path="/userprofile" element={<Userprofile />} />
         <Route path="/userprofile/edit" element={<ProfileEdit />} />

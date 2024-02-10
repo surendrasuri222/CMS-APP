@@ -13,6 +13,17 @@ exports.getUsers = (req, res) => {
         })
 }
 
+// get latest users
+exports.getLatestUsers = (req, res) => {
+    User.find().sort({ _id: -1 }).limit(5)
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(400).send({ error: err })
+        })
+}
+
 // get user by id
 exports.getUserById = (req, res) => {
     const id = req.params.id;
@@ -47,6 +58,27 @@ exports.getUserByIdAndDelete = (req, res) => {
         res.status(401).send(`User does not exist`)
     }
 }
+
+// update user details
+exports.updateUser = (req, res) => {
+    const id = req.params.id
+    const updatedUser = req.body;
+    try {
+        User.findByIdAndUpdate(id, updatedUser)
+            .then((data) => {
+                res.status(204).send(data)
+                console.log(`User with id ${id} has been updated`)
+            })
+            .catch((err) => {
+                res.status(404).send((err) => {
+                    console.log(`User not found ${err}`)
+                })
+            })
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
 
 // create a new user
 exports.createUser = async (req, res) => {
