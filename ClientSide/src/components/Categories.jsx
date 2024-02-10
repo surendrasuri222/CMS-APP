@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import $ from "jquery"
 import "tablesorter";
 import { NavLink } from 'react-router-dom';
+import Footer from './Footer';
 
 export default function Categories() {
 
@@ -92,9 +93,7 @@ export default function Categories() {
                 </div>
             </section>
 
-            <footer>
-                <p>Copyright 2017, All Rights Reserved</p>
-            </footer>
+            <Footer/>
         </>
     )
 

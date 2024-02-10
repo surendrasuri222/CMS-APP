@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import ProfileModal from './ProfileModal';
+import Footer from './Footer';
 
 function Userprofile() {
     const [data, setData] = useState({
@@ -119,9 +120,7 @@ function Userprofile() {
                 </div>
             </section >
 
-            <footer>
-                <p>Copyright 2017, All Rights Reserved</p>
-            </footer>
+            <Footer/>
 
         </>
     )

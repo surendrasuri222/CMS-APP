@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './Footer';
 const Dashboard = () => {
 
     const [users, setUsers] = useState([]);
@@ -145,9 +146,7 @@ const Dashboard = () => {
                 </div >
             </section >
 
-            <footer className="text-center">
-                <p>Copyright 2017, All Rights Reserved</p>
-            </footer>
+            <Footer/>
         </>
     );
 };

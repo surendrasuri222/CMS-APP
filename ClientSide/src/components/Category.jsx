@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import $ from "jquery"
 import "tablesorter";
 import { NavLink } from 'react-router-dom';
+import Footer from './Footer';
 
 
 const Category = () => {
@@ -93,6 +94,8 @@ const Category = () => {
                     </div>
                 </div >
             </section >
+
+            <Footer/>
         </>
     )
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Footer from "./Footer";
 
 const User = () => {
 
@@ -63,9 +64,7 @@ const User = () => {
                 </div>
             </section >
 
-            <footer>
-                <p>Copyright 2017, All Rights Reserved</p>
-            </footer>
+            <Footer/>
         </>
     )
 }

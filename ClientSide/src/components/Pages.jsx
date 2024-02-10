@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Footer from './Footer';
 
 
 const Pages = () => {
@@ -79,6 +80,8 @@ const Pages = () => {
                 </div>
 
             </section>
+
+            <Footer/>
         </>
     )
 }

@@ -4,6 +4,7 @@ import "tablesorter";
 import UserModal from './UserModal';
 import { NavLink } from 'react-router-dom';
 import axios from "axios";
+import Footer from './Footer';
 
 
 const Users = () => {
@@ -134,9 +135,7 @@ const Users = () => {
 
             </section >
 
-            <footer>
-                <p>Copyright 2017, All Rights Reserved</p>
-            </footer>
+            <Footer/>
         </>
     )
 }
