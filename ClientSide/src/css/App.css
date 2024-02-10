@@ -1,0 +1,161 @@
+.h-screen-center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+.card-form {
+  width: 100%;
+  max-width: 300px;
+  background-color: white;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: -50px;
+  
+}
+
+/* .lock-icons {
+  width: 60px;
+  height: 60px;
+  color: rgb(57, 57, 141);
+  justify-content:center;
+  align-items:center;
+  padding: 15px;
+  border-radius: 50px;
+  border: 2px solid rgb(57, 57, 141);
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top:20px;
+  position: relative;
+  font-size: 30px;
+  
+
+  
+} */
+
+.lock-icons {
+  width: 60px;
+  height: 60px;
+  color: #2fa4e7;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 50px;
+  border: 2px solid #2fa4e7;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.lock-icons i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
+
+
+
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+.form-element {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 55px;
+}
+
+.form-element input {
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 28px;
+}
+
+.form-element .input-container {
+  border: 1px solid black;
+  padding: 1px 2px;
+  border-radius: 3px;
+  display: flex;
+  width: 100%;
+ 
+  align-items: center;
+}
+
+.icons-password {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.form button {
+  padding: 9px 20px;
+  width: fit-content;
+  border-radius: 5px;
+  border: none;
+  background-color:#2fa4e7;
+  color: white;
+  letter-spacing: 1px;
+  margin: 7px auto;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.form button:hover {
+  background-color: #2fa4e7;
+  transform: scale(1.1);
+}
+
+.check {
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.user-profile-icon {
+  width: 50px;
+  height: 50px;
+  padding: 20px;
+  border: 2px solid #2fa4e7;
+  border-radius: 50px;
+  margin: auto;
+}
+
+.user-name {
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.user-email {
+  margin: 0;
+}
+
+.logout-btn {
+  border: 2px solid transparent;
+  background-color: rgb(58, 18, 46);
+  color: white;
+  font-weight: 600;
+  padding: 3px 12px;
+  letter-spacing: 0.5px;
+  width: fit-content;
+  margin-left: auto;
+  display: block;
+  cursor: pointer;
+}

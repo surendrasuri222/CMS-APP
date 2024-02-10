@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function BookModal() {
+export default function PageModal() {
 
     return (
         <>
@@ -10,7 +10,7 @@ export default function BookModal() {
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title d-flex justify-content-center" id="exampleModalLabel">Add New Book</h3>
+                            <h3 class="modal-title d-flex justify-content-center" id="exampleModalLabel">Add New Page</h3>
 
                         </div>
                         <div class="modal-body">
@@ -31,7 +31,7 @@ export default function BookModal() {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add Book</button>
+                            <button type="button" class="btn btn-primary">Add Page</button>
                         </div>
                     </div>
                 </div>

@@ -1,37 +1,85 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import Select from 'react-select';
 import axios from "axios";
 import { Navigate, useNavigate } from 'react-router-dom';
+import $ from "jquery";
 
 export default function UserModal() {
 
+
+    // const [showModal, setShowModal] = useState(false);
+
+    // const handleCloseModal = () => {
+    //     setShowModal(false);
+    // };
+
+    const navigate = useNavigate();
     const [user, setUser] = useState({
         name: "",
         email: "",
         password: ""
         // group: ""
     })
-
+    // useEffect(() => {
+    //     fetchUsers();
+    // })
     const handleChange = (event) => {
         const { name, value } = event.target;
         setUser({ ...user, [name]: value });
         console.log(event.target.value);
     }
+    // const fetchUsers = async () => {
+    //     try {
+    //         const response = await axios.get("http://localhost:4000/api/users");
+    //         setUser(response.data); // Update user list state
+    //     } catch (error) {
+    //         console.error("Error fetching users:", error);
+    //     }
+    // };
+
+    // const [refresh, setRefresh] = useState(false);
 
     const addUser = () => {
 
-        axios.post("http://localhost:5000/api/users/add", user)
+        axios.post("http://localhost:4000/api/users/add", user)
             .then((users) => {
                 // setUsers(users.data)
                 console.log(users)
                 alert(`User created successfully`)
-                Navigate("")
+                // fetchUsers();
+                // setRefresh(prevState => !prevState);
+                // setShowModal(false);
+                // return <Navigate to="/" replace />;
+                // $('#exampleModal').modal('hide'); // Close the modal
+                // navigate("/dashboard"); // Navigate to the users page
+                // navigate("/");
+                // Navigate("")
             })
             .catch((err) => {
-                console.log(`User cannot be added: ${err}`)
+                // console.log(`User cannot be added: ${err}`)
+                if (err.response && err.response.status === 400 && err.response.data === `User already exists`) {
+                    alert(`User already exists`);
+                }
+                else {
+                    console.log(`User cannot be added: ${err}`)
+                }
+
             })
+        setUser({
+            name: "",
+            email: "",
+            password: ""
+        })
+        // navigate("/");
     }
-    // adding the user
+    const handlerefresh = () => {
+        // window.location.reload();
+        // fetchUsers();
+    }
+
+
+
+
 
 
     const [interests, setInterests] = useState([]);
@@ -90,15 +138,15 @@ export default function UserModal() {
                                     <label htmlFor="password" className="col-form-label">*Password:</label>
                                     <input type="password" className="form-control" id="password" name="password" value={user.password} onChange={handleChange} required />
                                 </div>
-                                <div className="form-group">
+                                {/* <div className="form-group">
                                     <label htmlFor="group" className="col-form-label">*Group:</label>
                                     <input type="text" className="form-control" id="group" name="group" value={user.group} onChange={handleChange} />
-                                </div>
+                                </div> */}
 
 
 
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={handlerefresh}>Cancel</button>
                                     <button type="submit" className="btn btn-primary" onClick={addUser}>Add User</button>
                                 </div>
                             </form>
