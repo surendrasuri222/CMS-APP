@@ -19,6 +19,7 @@ import EditUsers from "./components/EditUsers";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Userprofile from "./components/Userprofile";
+import ProfileEdit from "./components/ProfileEdit";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/users" element={<Users />} />
 
         <Route path="/userprofile" element={<Userprofile />} />
+        <Route path="/userprofile/edit" element={<ProfileEdit />} />
         <Route path="/users/user" element={<User />} />
         <Route path="/users/edit" element={<EditUsers />} />
         <Route path="/Categories" element={<Categories />} />

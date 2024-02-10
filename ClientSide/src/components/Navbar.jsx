@@ -24,7 +24,7 @@ const Navbar = () => {
 
     return (
 
-        <nav className={`nav container-fluid d-flex w-100 mb-5 `}>
+        <nav className={`nav container-fluid d-flex w-100 mb-5  sticky-top`}>
             <h4 className='white-text flex-row'><NavLink to='/dashboard' className="nav__logo">DCX CMS</NavLink></h4>
 
             <div className={`nav__menu ${showMenu ? 'show-menu' : ''}`} style={{ zIndex: 1 }}>

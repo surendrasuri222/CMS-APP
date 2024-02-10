@@ -39,10 +39,10 @@ function Userprofile() {
     return (
 
         <>
-            
 
 
-            <section>
+
+            {/* <section>
                 <div className="container shadow-lg p-3 mb-5 bg-white rounded">
                     <div className="row">
 
@@ -55,45 +55,65 @@ function Userprofile() {
                                 <div class="col-md-6">
                                     <div class="btn-group actions" role="group" aria-label="...">
                                         {/* New - Modal Button */}
-                                        <ProfileModal />
+            {/* <NavLink to='/userprofile/edit'><button type="button" className="btn btn-primary shadow-lg"><i className="bi bi-pencil-square"></i> Edit </button>
+                                        </NavLink>
                                     </div>
                                 </div>
 
-                            </div>
-                            
-
-                            <ol class="breadcrumb">
-                                <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-                                <li class="active">Profile</li>
-                            </ol>
-                            
-
-
+                            </div> */}
+            <section>
+                <div class="container shadow-lg p-3 mb-5 bg-white rounded p-5">
+                    <div className="row">
+                        <div className="col-md-12">
                             <div className="row">
+                                <div className="col-md-12">
+                                    <h1 className="book-header">
+                                        <div className="row">
+                                            <div className=" col xs={6} sm={6} md={6} lg={6}">
+                                                <i className="glyphicon glyphicon-file"></i> Welcome {data?.name} !!
+                                            </div>
+                                            <div className="col xs={6} sm={6} md={6} lg={6} d-flex flex-row-reverse">
+                                                <NavLink to="/userprofile/edit"><button type="button" className="btn btn-primary shadow-lg"><i className="bi bi-pencil-square"></i> Edit</button></NavLink>
+                                            </div>
+                                        </div>
+                                    </h1>
+                                </div>
 
 
-                                <div className="col-md-6">
+
+                                <ol class="breadcrumb">
+                                    <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+                                    <li class="active">Profile</li>
+                                </ol>
 
 
-                                    <p><strong>Name:</strong> {data?.name}</p>
-                                    <p><strong>Email:</strong> {data?.email}</p>
-                                    <p><strong>Role:</strong> {data?.role}</p>
-                                    <p><strong>Gender:</strong> {data?.gender}</p>
-                                    <p><strong>Age:</strong> {data?.age}</p>
-                                    <p><strong>Interests:</strong></p>
-                                    {/* <ul>
+
+                                <div className="row">
+
+
+                                    <div className="col-md-6">
+
+
+                                        <p><strong>Name:</strong> {data?.name}</p>
+                                        <p><strong>Email:</strong> {data?.email}</p>
+                                        <p><strong>Role:</strong> {data?.role}</p>
+                                        <p><strong>Gender:</strong> {data?.gender}</p>
+                                        <p><strong>Age:</strong> {data?.age}</p>
+                                        <p><strong>Interests:</strong></p>
+                                        {/* <ul>
                                         {data.interests.map((interest, i) => (
                                             <li key={i}>{interest}</li>
                                         ))}
                                     </ul> */}
 
 
+                                    </div>
+
+
                                 </div>
-                                
+
 
                             </div>
-
-
                         </div>
                     </div>
                 </div>
