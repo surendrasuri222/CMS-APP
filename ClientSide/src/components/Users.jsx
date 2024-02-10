@@ -66,7 +66,8 @@ const Users = () => {
                                                 <i className="glyphicon glyphicon-file"></i> Users
                                             </div>
                                             <div className="col xs={6} sm={6} md={6} lg={6} d-flex flex-row-reverse">
-                                                <UserModal />
+                                                {/* <UserModal /> */}
+                                                <NavLink to="/users/add"><button type="button" class="btn btn-primary shadow-lg"><i className="glyphicon glyphicon-plus"></i> New</button></NavLink>
                                             </div>
                                         </div>
                                     </h1>
@@ -92,9 +93,6 @@ const Users = () => {
                                 </thead>
 
                                 <tbody>
-
-
-
 
                                     {
                                         users.map((user) => {

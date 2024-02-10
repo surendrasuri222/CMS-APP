@@ -1,8 +1,28 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 const Dashboard = () => {
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+
+        // Fetching the data using axios
+        axios.get("http://localhost:4000/api/users/id")
+            .then((users) => {
+                setUsers(users.data)
+                // console.log(users)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        // console.log(users)
+
+    }, [])
+
     return (
         <>
             <section>
@@ -71,7 +91,7 @@ const Dashboard = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            {/* <tr>
                                                 <td><NavLink to="/user">Austen Paige</NavLink></td>
                                                 <td>paige@info.com</td>
                                                 <td>Admin</td>
@@ -98,7 +118,20 @@ const Dashboard = () => {
                                                 <td><NavLink to="/user">Jenni lora</NavLink></td>
                                                 <td>jenni@info.com</td>
                                                 <td>Registered</td>
-                                            </tr>
+                                            </tr> */}
+
+                                            {
+                                                users.map((user) => {
+                                                    return (
+                                                        <tr className='p-2'>
+                                                            <td><NavLink to="/users/user">{user.email}</NavLink></td>
+                                                            <td>{user.email}</td>
+                                                            <td>{user.email}</td>
+                                                            {/* <td><button className='btn btn-default bi bi-trash3-fill p-2' onClick={() => deleteHandler(user._id)}></button></td> */}
+                                                        </tr>
+                                                    )
+                                                })
+                                            }
 
                                         </tbody>
                                     </table>

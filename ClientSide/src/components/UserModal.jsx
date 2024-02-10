@@ -43,20 +43,10 @@ export default function UserModal() {
 
         axios.post("http://localhost:4000/api/users/add", user)
             .then((users) => {
-                // setUsers(users.data)
                 console.log(users)
                 alert(`User created successfully`)
-                // fetchUsers();
-                // setRefresh(prevState => !prevState);
-                // setShowModal(false);
-                // return <Navigate to="/" replace />;
-                // $('#exampleModal').modal('hide'); // Close the modal
-                // navigate("/dashboard"); // Navigate to the users page
-                // navigate("/");
-                // Navigate("")
             })
             .catch((err) => {
-                // console.log(`User cannot be added: ${err}`)
                 if (err.response && err.response.status === 400 && err.response.data === `User already exists`) {
                     alert(`User already exists`);
                 }
@@ -70,18 +60,7 @@ export default function UserModal() {
             email: "",
             password: ""
         })
-        // navigate("/");
     }
-    const handlerefresh = () => {
-        // window.location.reload();
-        // fetchUsers();
-    }
-
-
-
-
-
-
     const [interests, setInterests] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
 
@@ -146,7 +125,7 @@ export default function UserModal() {
 
 
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={handlerefresh}>Cancel</button>
+                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                     <button type="submit" className="btn btn-primary" onClick={addUser}>Add User</button>
                                 </div>
                             </form>
