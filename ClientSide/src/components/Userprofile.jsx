@@ -39,27 +39,7 @@ function Userprofile() {
     return (
 
         <>
-            {/* <div className='h-screen-center'>
-            <div className='user-profile'>
-                <div className='user-profile-icon'>
-                    <i class="fa-solid fa-user-tie fa-3x"></i>
-                </div>
-                <img src='ddvd.jpg' alt='Image of the User' />
-            </div>
-            <div>
-                <div>
-                    <h1>Users Name</h1>
-                    <h1 className='user-name'>{data?.name}</h1>
-
-                </div>
-                <div>
-                    <h1>Users Email</h1>
-                    <p className='user-email'>{data?.email}</p>
-
-                </div>
-            </div>
-        </div> */}
-
+            
 
 
             <section>
@@ -68,16 +48,25 @@ function Userprofile() {
 
                         <div className="col-md-12">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <h1 class="page-header"><i class="glyphicon glyphicon-user"></i> Welcome {data?.name} !!</h1>
                                 </div>
 
+                                <div class="col-md-6">
+                                    <div class="btn-group actions" role="group" aria-label="...">
+                                        {/* New - Modal Button */}
+                                        <ProfileModal />
+                                    </div>
+                                </div>
+
                             </div>
+                            
 
                             <ol class="breadcrumb">
                                 <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                                 <li class="active">Profile</li>
                             </ol>
+                            
 
 
                             <div className="row">
@@ -100,12 +89,7 @@ function Userprofile() {
 
 
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="btn-group actions" role="group" aria-label="...">
-                                        {/* New - Modal Button */}
-                                        <ProfileModal />
-                                    </div>
-                                </div>
+                                
 
                             </div>
 
