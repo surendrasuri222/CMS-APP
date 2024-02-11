@@ -1,0 +1,101 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+import $ from "jquery";
+import "tablesorter";
+
+const NewAndEdit = () => {
+
+    useEffect(() => {
+        $("#sort-table").tablesorter({
+            sortList: [[0, 0], [1, 0]]
+        });
+    }, []);
+
+    const { id } = useParams()
+    const navigate = useNavigate();
+    const baseUrl = 'http://localhost:4000/api/page';
+    const [formData, setFormData] = useState({
+        PageTitle: '',
+        category: '',
+        director: '',
+        description: ''
+    });
+
+    // Fetch page details in edit mode
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                if (id) {
+                    //edit mode if id as a parameter
+                    const response = await axios.get(`${baseUrl}/${id}`);
+                    setFormData(response.data);
+                }
+            } catch (error) {
+                console.error('Error fetching page details:', error.message);
+            }
+        };
+
+        fetchData();
+    }, [baseUrl, id]);
+
+    const handleChange = (e) => {
+        setFormData((prevForm) => ({
+            ...prevForm,
+            [e.target.name]: e.target.value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            if (id) {
+                //PUT request in edit
+                await axios.put(`${baseUrl}/${id}`, formData);
+                alert('Page updated successfully');
+                navigate('/pages'); // Redirect to the pages
+            } else {
+                // POST request
+                await axios.post(baseUrl, formData);
+                alert('Page created successfully');
+                navigate('/pages'); // Redirect to the pages
+            }
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    };
+
+    return (
+        <>
+            <div className="border border dark rounded container-fluid w-50 shadow-lg p-3 mb-5 bg-white rounded">
+                <h1>{id ? 'Edit Page' : 'Create Page'}</h1>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="pageTitle" className="col-form-label">Page Title:</label>
+                    <input type="text" className="form-control" id="pageTitle" name="PageTitle" value={formData.PageTitle} onChange={handleChange} required />
+
+                    <label htmlFor="category" className="col-form-label">Category:</label>
+                    <input type="text" className="form-control" id="category" name="category" value={formData.category} onChange={handleChange} required />
+                    <div className="form-group">
+                        <label htmlFor="director" className="col-form-label">director:</label>
+                        <input type="text" className="form-control" id="director" name="director" value={formData.director} onChange={handleChange} required />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="description" className="col-form-label">Description:</label>
+                        <textarea id="description" className="form-control" name="description" value={formData.description} onChange={handleChange} required></textarea>
+                    </div>
+                    <div className="container-fluid">
+                        <button className="btn btn-secondary me-2" onClick={() => navigate('/pages')}>
+                            Close
+                        </button>
+                        <button type="submit" className="btn btn-primary">
+                            {id ? 'Update Page' : 'Add Page'}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </>
+    );
+};
+
+export { NewAndEdit };

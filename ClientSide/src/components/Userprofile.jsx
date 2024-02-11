@@ -8,6 +8,10 @@ function Userprofile() {
     const [data, setData] = useState({
         name: "",
         email: "",
+        role: "",
+        gender: "",
+        age: 0,
+        interests: ["action"]
     })
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
@@ -16,7 +20,7 @@ function Userprofile() {
         if (!token) {
             navigate("/")
         }
-    },)
+    }, [])
 
     const handleUserProfile = async () => {
         const response = await fetch('http://localhost:4000/api/userprofile', {
@@ -43,25 +47,7 @@ function Userprofile() {
 
 
 
-            {/* <section>
-                <div className="container shadow-lg p-3 mb-5 bg-white rounded">
-                    <div className="row">
 
-                        <div className="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h1 class="page-header"><i class="glyphicon glyphicon-user"></i> Welcome {data?.name} !!</h1>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="btn-group actions" role="group" aria-label="...">
-                                        {/* New - Modal Button */}
-            {/* <NavLink to='/userprofile/edit'><button type="button" className="btn btn-primary shadow-lg"><i className="bi bi-pencil-square"></i> Edit </button>
-                                        </NavLink>
-                                    </div>
-                                </div>
-
-                            </div> */}
             <section>
                 <div class="container shadow-lg p-3 mb-5 bg-white rounded p-5">
                     <div className="row">
@@ -101,11 +87,16 @@ function Userprofile() {
                                         <p><strong>Gender:</strong> {data?.gender}</p>
                                         <p><strong>Age:</strong> {data?.age}</p>
                                         <p><strong>Interests:</strong></p>
-                                        {/* <ul>
-                                        {data.interests.map((interest, i) => (
-                                            <li key={i}>{interest}</li>
-                                        ))}
-                                    </ul> */}
+                                        <ul>
+                                            {data.interests != null && (
+                                                <ul>
+                                                    {data.interests.map((interest, i) => (
+                                                        <li key={i}>{interest}</li>
+                                                    ))}
+                                                </ul>
+                                            )}
+
+                                        </ul>
 
 
                                     </div>
@@ -120,7 +111,7 @@ function Userprofile() {
                 </div>
             </section >
 
-            <Footer/>
+            <Footer />
 
         </>
     )

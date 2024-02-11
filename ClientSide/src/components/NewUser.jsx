@@ -19,6 +19,7 @@ export default function NewUser() {
         console.log(event.target.value);
     }
 
+
     const addUser = () => {
 
         axios.post("http://localhost:4000/api/users/add", user)

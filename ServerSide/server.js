@@ -5,6 +5,8 @@ dotenv.config()
 const connectDB = require("./DataBase/database")
 const router = require("./routes/authroute")
 const userRouter = require("./routes/userRouter")
+const pageRouter = require("./routes/pageroute");
+const Page = require('./models/pageModel')
 // const User = require("./models/usermodel");
 
 const app = express()
@@ -21,7 +23,7 @@ app.get("/", (req, res) => {
 })
 
 
-
+app.use('/api/page', pageRouter)
 app.use("/api/users", userRouter);
 app.use('/api', router)
 connectDB()

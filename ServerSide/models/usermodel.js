@@ -17,6 +17,26 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    role: {
+        type: String,
+        default: ""
+    },
+    gender: {
+        type: String,
+        default: ""
+    },
+    age: {
+        type: Number,
+
+    },
+    interests: {
+        type: Array,
+    },
+
 }, {
     timestamps: true
 })

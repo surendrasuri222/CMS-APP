@@ -52,11 +52,12 @@ async function userSignin(req, res) {
 
             const payload = {
                 _id: user._id,
-                email: user.email
+                email: user.email,
+                isAdmin: user.isAdmin
             }
 
             const token = jwt.sign(payload, process.env.JWT_SECRET, {
-                expiresIn: '1h'
+                expiresIn: '7d'
             })
 
             res.status(200).json({

@@ -49,7 +49,7 @@ function Signin() {
         if (dataResponse.success) {
             toast.success(dataResponse.message)
             localStorage.setItem('token', dataResponse.token)
-            navigate('/userprofile')
+            navigate('/dashboard')
         }
     }
 
