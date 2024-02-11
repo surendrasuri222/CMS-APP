@@ -3,15 +3,15 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import $ from "jquery";
 import "tablesorter";
- 
+
 const NewAndEdit = () => {
- 
+
     useEffect(() => {
         $("#sort-table").tablesorter({
             sortList: [[0, 0], [1, 0]]
         });
     }, []);
- 
+
     const { id } = useParams()
     const navigate = useNavigate();
     const baseUrl = 'http://localhost:4000/api/page';
@@ -21,7 +21,7 @@ const NewAndEdit = () => {
         director: '',
         description: ''
     });
- 
+
     // Fetch page details in edit mode
     useEffect(() => {
         const fetchData = async () => {
@@ -35,10 +35,10 @@ const NewAndEdit = () => {
                 console.error('Error fetching page details:', error.message);
             }
         };
- 
+
         fetchData();
     }, [baseUrl, id]);
- 
+
     const handleChange = (e) => {
         setFormData((prevForm) => ({
             ...prevForm,
@@ -46,10 +46,10 @@ const NewAndEdit = () => {
             // e.target.value
         }));
     };
- 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
- 
+
         try {
             if (id) {
                 //PUT request in edit
@@ -66,37 +66,38 @@ const NewAndEdit = () => {
             console.error('Error:', error.message);
         }
     };
- 
+
     return (
         <>
             <div className="border border dark rounded container-fluid w-50 shadow-lg p-3 mb-5 bg-white rounded">
                 <h1>{id ? 'Edit Page' : 'Create Page'}</h1>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="pageTitle" className="col-form-label">Page Title:</label>
+                    <label htmlFor="pageTitle" className="col-form-label">Page Title</label>
                     <input type="text" className="form-control" id="pageTitle" name="PageTitle" value={formData.PageTitle.charAt(0).toUpperCase() + formData.PageTitle.slice(1)} onChange={handleChange} required />
- 
-                    <label htmlFor="category" className="col-form-label">Category:</label>
+
+                    <label htmlFor="category" className="col-form-label">Category</label>
                     <input type="text" className="form-control" id="category" name="category" value={formData.category.charAt(0).toUpperCase() + formData.category.slice(1)} onChange={handleChange} required />
                     <div className="form-group">
-                        <label htmlFor="director" className="col-form-label">director:</label>
+                        <label htmlFor="director" className="col-form-label">Director</label>
                         <input type="text" className="form-control" id="director" name="director" value={formData.director.charAt(0).toUpperCase() + formData.director.slice(1)} onChange={handleChange} required />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="description" className="col-form-label">Description:</label>
+                        <label htmlFor="description" className="col-form-label">Description</label>
                         <textarea id="description" className="form-control" rows={10} cols={20} name="description" value={formData.description.charAt(0).toUpperCase() + formData.description.slice(1)} onChange={handleChange} required></textarea>
                     </div>
-                    <div className="container-fluid">
+                    <div className="container-fluid d-flex flex-row-reverse">
+                        <button type="submit" className="btn btn-primary me-2">
+                            {id ? 'Update Page' : 'Add Page'}
+                        </button>
                         <button className="btn btn-secondary me-2" onClick={() => navigate('/pages')}>
                             Close
                         </button>
-                        <button type="submit" className="btn btn-primary">
-                            {id ? 'Update Page' : 'Add Page'}
-                        </button>
+
                     </div>
                 </form>
             </div>
         </>
     );
 };
- 
+
 export { NewAndEdit };

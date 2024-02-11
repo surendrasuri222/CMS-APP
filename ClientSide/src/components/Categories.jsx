@@ -3,17 +3,18 @@ import $ from "jquery";
 import "tablesorter";
 import Footer from './Footer';
 import axios from 'axios';
- 
+import { NavLink } from 'react-router-dom';
+
 export default function Categories() {
- 
+
     useEffect(() => {
         $("#sort-table").tablesorter({
             sortList: [[0, 0], [1, 0]]
         });
     }, []);
- 
+
     const [categoryCounts, setCategoryCounts] = useState([]);
- 
+
     useEffect(() => {
         // Fetching the data using axios
         axios.get("http://localhost:4000/api/categories/count")
@@ -25,9 +26,9 @@ export default function Categories() {
                 console.log(err);
             });
     }, []);
- 
+
     const [categories, setCategories] = useState([]);
- 
+
     useEffect(() => {
         // Fetching the data using axios
         axios.get("http://localhost:4000/api/categories")
@@ -41,7 +42,7 @@ export default function Categories() {
                 console.log(err);
             });
     }, []);
- 
+
     return (
         <>
             <section>
@@ -56,7 +57,7 @@ export default function Categories() {
                                 </div>
                             </div>
                             <ol className="breadcrumb">
-                                <li><a href="/dashboard">Dashboard</a></li>
+                                <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                                 <li className="active">Categories</li>
                             </ol>
                             <table id="sort-table" className="table table-striped tablesorter table-hover">
