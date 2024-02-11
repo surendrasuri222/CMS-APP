@@ -83,7 +83,7 @@ const NewAndEdit = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description" className="col-form-label">Description:</label>
-                        <textarea id="description" className="form-control" name="description" value={formData.description.charAt(0).toUpperCase() + formData.description.slice(1)} onChange={handleChange} required></textarea>
+                        <textarea id="description" className="form-control" rows={10} cols={20} name="description" value={formData.description.charAt(0).toUpperCase() + formData.description.slice(1)} onChange={handleChange} required></textarea>
                     </div>
                     <div className="container-fluid">
                         <button className="btn btn-secondary me-2" onClick={() => navigate('/pages')}>

@@ -59,15 +59,25 @@ const Page = () => {
 
     return (
         <>
-            <div className="container">
-                <h2>Page Details</h2>
-                <div className="card">
-                    <div className="card-body">
-                        <h2 className="card-title">{page.PageTitle}</h2>
-                        <p className="card-text"><strong>Director:</strong> {page.author}</p>
-                        <p className="card-text"><strong>Category:</strong> {page.category}</p>
-                        <p className="card-text"><strong>Description:</strong> {page.description}</p>
-
+            <div className="container w-50 shadow-lg p-3 mb-5 bg-white rounded">
+                <div className="row ps-5 pe-5">
+                    <div className="col">
+                        <h2>{page.PageTitle}</h2>
+                    </div>
+                </div>
+                <div className="row ps-5 pe-5 pt-2">
+                    <div className="col">
+                        <p><strong>Category: </strong>{page.category}</p>
+                    </div>
+                </div>
+                <div className="row ps-5 pe-5 pt-2">
+                    <div className="col">
+                        <p><strong>Director:</strong>{page.director}</p>
+                    </div>
+                </div>
+                <div className="row ps-5 pe-5 pt-2">
+                    <div className="col">
+                        <p><strong>Description:</strong>{page.description}</p>
                     </div>
                 </div>
             </div>
