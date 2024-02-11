@@ -1,0 +1,89 @@
+import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
+import { getPage } from "../apiService/pageApiService";
+
+const URL = "http://localhost:4000/api/page/search?q=";
+
+const Search = () => {
+    const [data, setData] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [pages, setPages] = useState([]);
+
+
+    useEffect(() => {
+        const fetchpageData = async () => {
+            try {
+                const response = await getPage();
+                setPages(response);
+            } catch (error) {
+                console.error("Error fetching Pages:", error.message);
+            }
+        };
+        fetchpageData([]);
+    }, []);
+
+    const fetchData = async (apiURL) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(apiURL);
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            const data = await response.json();
+            setData(data);
+        } catch (error) {
+            setError(error.message || 'Something went wrong');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        const correctURL = `${URL}${searchTerm}`;
+        if (searchTerm.trim() !== "") {
+            fetchData(correctURL);
+        } else {
+            setData([]);
+        }
+    }, [searchTerm]);
+
+    return (
+        <div>
+            <form>
+                <input
+                    type="text"
+                    name="search"
+                    id="search"
+                    placeholder="Search for categories..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </form>
+
+            <hr />
+            {loading && <h3>Loading...</h3>}
+            {error && <h3 style={{ color: "red" }}>{error}</h3>}
+            {!loading && !error && (
+                <ul className="cocktail-data">
+                    {data.map((eachdata, index) => {
+                        const { PageTitle, category } = eachdata;
+                        return (
+                            <li key={index}>
+                                <div className="text">
+
+                                    <h3><Link to={`/page/${eachdata._id}`}>{PageTitle}</Link></h3>
+                                    <h3>{category}</h3>
+                                </div>
+                            </li>
+                        );
+                    })}
+                </ul>
+            )}
+        </div>
+    );
+};
+
+export default Search;

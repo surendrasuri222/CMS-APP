@@ -20,6 +20,7 @@ import Userprofile from "./components/Userprofile";
 import ProfileEdit from "./components/ProfileEdit";
 import NewUser from "./components/NewUser";
 import { NewAndEdit } from "./components/NewAndEdit";
+import Search from "./components/Search";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
         <Route path="/users/edit" element={<EditUsers />} />
         <Route path="/Categories" element={<Categories />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/search" element={<Search />} />
 
 
       </Routes>

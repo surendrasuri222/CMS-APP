@@ -56,16 +56,11 @@ const Navbar = () => {
                     <i className="ri-close-line"></i>
                 </div> */}
             </div>
+            <NavLink to='/search'><i className="ri-search-line nav__search  my-auto" onClick={toggleSearch} style={{ fontSize: '18px' }}></i></NavLink>
 
             <div className="nav__actions d-flex align-items-center  my-auto">
-                <i className="ri-search-line nav__search  my-auto" onClick={toggleSearch} style={{ fontSize: '18px' }}></i>
-                {/* {
-                    showSearch && (
-                        <div className="search-popup border border-white  my-auto">
-                            <input type="text" placeholder="Search by Category" />
-                        </div>
-                    )
-                } */}
+
+
                 <NavLink to='/userprofile' className="ri-user-line nav__login  my-auto" style={{ fontSize: '18px' }} ></NavLink>
                 <div className="nav__toggle" onClick={toggleMenu}>
                     <i className="ri-menu-line"></i>

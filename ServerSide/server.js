@@ -7,7 +7,6 @@ const router = require("./routes/authroute")
 const userRouter = require("./routes/userRouter")
 const pageRouter = require("./routes/pageroute");
 const Page = require('./models/pageModel')
-// const User = require("./models/usermodel");
 
 const app = express()
 app.use(cors())
@@ -22,6 +21,17 @@ app.get("/", (req, res) => {
     })
 })
 
+app.get('/api/page/search', async (req, res) => {
+    try {
+        const { q } = req.query; // q is the query parameter for the category name
+        // Find pages with category matching the search query
+        const results = await Page.find({ category: { $regex: new RegExp(q, 'i') } });
+        res.json(results);
+    } catch (error) {
+        console.error('Error searching pages:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 app.use('/api/page', pageRouter)
 app.use("/api/users", userRouter);
