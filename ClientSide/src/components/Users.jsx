@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import $ from "jquery";
 import "tablesorter";
-import UserModal from './UserModal';
 import { NavLink } from 'react-router-dom';
 import axios from "axios";
 import Footer from './Footer';
-
-
+ 
+ 
 const Users = () => {
-
+ 
     useEffect(() => {
         $("#sort-table").tablesorter({
             sortList: [[0, 0], [1, 0]]
         });
     }, []);
-
+ 
     const [users, setUsers] = useState([]);
-
+ 
+ 
     // const { id } = useParams();
     useEffect(() => {
-
+ 
         // Fetching the data using axios
         axios.get("http://localhost:4000/api/users")
             .then((users) => {
@@ -30,14 +30,16 @@ const Users = () => {
                 console.log(err);
             })
         // console.log(users)
-
+ 
+ 
+ 
     }, [])
-
+ 
     // deleting the user
     const deleteHandler = (id) => {
-
+ 
         console.log(id);
-
+ 
         if (window.confirm(`Are you sure you want to delete this user?`)) {
             axios.delete(`http://localhost:4000/api/users/${id}`)
                 .then((response) => {
@@ -52,7 +54,7 @@ const Users = () => {
                 })
         }
     }
-
+ 
     return (
         <>
             <section>
@@ -73,33 +75,33 @@ const Users = () => {
                                         </div>
                                     </h1>
                                 </div>
-
-
+ 
+ 
                             </div>
-
+ 
                             <ol class="breadcrumb">
                                 <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                                 <li class="active">Users</li>
                             </ol>
-
+ 
                             <table id="sort-table" class="table table-striped tablesorter table-hover">
                                 <thead>
                                     <tr>
-
+ 
                                         <th>Full Name <i class="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Email <i class="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Group <i class="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Action <i class="glyphicon glyphicon-chevron-down"></i></th>
                                     </tr>
                                 </thead>
-
+ 
                                 <tbody>
-
+ 
                                     {
                                         users.map((user) => {
                                             return (
                                                 <tr className='p-2'>
-                                                    <td><NavLink to="/users/user">{user.email}</NavLink></td>
+                                                    <td><NavLink to={`/users/user/${user._id}`}>{user.email}</NavLink></td>
                                                     <td>{user.email}</td>
                                                     <td>{user.email}</td>
                                                     <td><button className='btn btn-default bi bi-trash3-fill p-2' onClick={() => deleteHandler(user._id)}></button></td></tr>)
@@ -128,16 +130,16 @@ const Users = () => {
                                     </ul>
                                 </nav>
                             </div>
-
+ 
                         </div>
                     </div>
                 </div>
-
+ 
             </section >
-
-            <Footer/>
+ 
+            <Footer />
         </>
     )
 }
-
+ 
 export default Users

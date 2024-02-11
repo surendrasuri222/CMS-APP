@@ -1,21 +1,51 @@
-import React, { useEffect } from 'react';
-import $ from "jquery"
+import React, { useEffect, useState } from 'react';
+import $ from "jquery";
 import "tablesorter";
-import { NavLink } from 'react-router-dom';
 import Footer from './Footer';
-
+import axios from 'axios';
+ 
 export default function Categories() {
-
+ 
     useEffect(() => {
         $("#sort-table").tablesorter({
             sortList: [[0, 0], [1, 0]]
         });
     }, []);
-
+ 
+    const [categoryCounts, setCategoryCounts] = useState([]);
+ 
+    useEffect(() => {
+        // Fetching the data using axios
+        axios.get("http://localhost:4000/api/categories/count")
+            .then((count) => {
+                console.log(count.data);
+                setCategoryCounts(count.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+ 
+    const [categories, setCategories] = useState([]);
+ 
+    useEffect(() => {
+        // Fetching the data using axios
+        axios.get("http://localhost:4000/api/categories")
+            .then((categories) => {
+                console.log(categories.data);
+                // Filter out duplicate categories
+                const uniqueCategories = Array.from(new Set(categories.data.map(category => category.category)));
+                setCategories(uniqueCategories);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+ 
     return (
         <>
             <section>
-                <div className="container  shadow-lg p-3 mb-5 bg-white rounded p-5">
+                <div className="container shadow-lg p-3 mb-5 bg-white rounded p-5">
                     <div className="row">
                         <div className="col-md-12">
                             <div className="row">
@@ -24,14 +54,11 @@ export default function Categories() {
                                         <i className="glyphicon glyphicon-folder-open"></i> Categories
                                     </h1>
                                 </div>
-
                             </div>
-
                             <ol className="breadcrumb">
                                 <li><a href="/dashboard">Dashboard</a></li>
                                 <li className="active">Categories</li>
                             </ol>
-
                             <table id="sort-table" className="table table-striped tablesorter table-hover">
                                 <thead>
                                     <tr>
@@ -45,28 +72,17 @@ export default function Categories() {
                                         </th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-                                    <tr>
-
-                                        <td><NavLink to="/Category">Sample Category Two</NavLink></td>
-                                        <td className='text-center'>2</td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <td><NavLink to="/category">Sample Category One</NavLink></td>
-                                        <td className='text-center'>4</td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <td><NavLink to="/category">Sample Category Three</NavLink></td>
-                                        <td className='text-center'>3</td>
-                                    </tr>
+                                    {
+                                        categories.map((category, index) => (
+                                            <tr key={index} className='p-2'>
+                                                <td>{category}</td>
+                                                <td className='text-center'>{categoryCounts[index] ? categoryCounts[index].totalPages : 0}</td>
+                                            </tr>
+                                        ))
+                                    }
                                 </tbody>
                             </table>
-
                             <div className="d-flex justify-content-center h-2 ">
                                 <nav className='mx-auto p-2' aria-label="Book navigation">
                                     <ul className="pagination">
@@ -92,9 +108,7 @@ export default function Categories() {
                     </div>
                 </div>
             </section>
-
-            <Footer/>
+            <Footer />
         </>
-    )
-
+    );
 }

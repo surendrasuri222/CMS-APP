@@ -47,7 +47,7 @@ function App() {
         <Route path="/page/new" element={<NewAndEdit />} />
         <Route path="/userprofile" element={<Userprofile />} />
         <Route path="/userprofile/edit" element={<ProfileEdit />} />
-        <Route path="/users/user" element={<User />} />
+        <Route path="/users/user/:id" element={<User />} />
         <Route path="/users/edit" element={<EditUsers />} />
         <Route path="/Categories" element={<Categories />} />
         <Route path="/logout" element={<Logout />} />
