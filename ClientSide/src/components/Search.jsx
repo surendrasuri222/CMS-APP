@@ -51,38 +51,38 @@ const Search = () => {
     }, [searchTerm]);
 
     return (
-        <div>
-            <form>
-                <input
-                    type="text"
-                    name="search"
-                    id="search"
-                    placeholder="Search for categories..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-            </form>
+        <>
+        <div className="search-container">
+                <input type="text" placeholder="Search By Categories.." className="search-input" value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)} />
+                <button className="search-button" >
+                    <i className="fa fa-search"></i>
+                </button>
 
-            <hr />
-            {loading && <h3>Loading...</h3>}
-            {error && <h3 style={{ color: "red" }}>{error}</h3>}
-            {!loading && !error && (
-                <ul className="cocktail-data">
-                    {data.map((eachdata, index) => {
-                        const { PageTitle, category } = eachdata;
-                        return (
-                            <li key={index}>
-                                <div className="text">
 
-                                    <h3><Link to={`/page/${eachdata._id}`}>{PageTitle}</Link></h3>
-                                    <h3>{category}</h3>
-                                </div>
-                            </li>
-                        );
-                    })}
-                </ul>
-            )}
-        </div>
+            </div>
+            <div className='result-list'>
+                {loading && <h3>Loading...</h3>}
+                {error && <h3 style={{ color: "red" }}>{error}</h3>}
+                {!loading && !error && (
+                    <ul className="cocktail-data">
+                        {data.map((eachdata, index) => {
+                            const { PageTitle, category } = eachdata;
+                            return (
+                                <li key={index}>
+                                    <div className="text">
+
+                                        <p><Link to={`/page/${eachdata._id}`}>Page: {PageTitle}</Link></p>
+                                        <p>category: {category}</p>
+                                    </div>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                )}
+            </div>
+
+        </>
     );
 };
 
