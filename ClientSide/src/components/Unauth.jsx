@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+// import img from ""
 function Unauth() {
 
     const navigate = useNavigate()
@@ -14,7 +15,17 @@ function Unauth() {
 
 
     return (
-        <div>U are not accessed</div>
+        <>
+            <div className='d-flex justify-content-center'>
+                <img src="../img/unauthorised-removebg-preview.jpg" className='col-md-4 row d-flex justify-content-center' alt="Unauthorised" />
+            </div>
+            <hr />
+            <div className='d-flex justify-content-center display-6 text-danger strong'>
+                <b>403 Error : Access to only Admin.</b>
+
+            </div>
+        </>
+
     )
 }
 

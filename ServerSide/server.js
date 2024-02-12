@@ -10,6 +10,7 @@ const Page = require('./models/pageModel')
 const categoriesRouter = require("./routes/categoriesRoute")
 const editProfileRouter = require("./routes/profileEditRouter")
 const verifyToken = require("./middleware/verifyToken")
+const searchController = require('./controllers/searchController')
 
 // const User = require("./models/usermodel");
 
@@ -26,17 +27,7 @@ app.get("/", (req, res) => {
         message: "Server is running"
     })
 })
-app.get('/api/page/search', async (req, res) => {
-    try {
-        const { q } = req.query; // q is the query parameter for the category name
-        // Find pages with category matching the search query
-        const results = await Page.find({ category: { $regex: new RegExp(q, 'i') } });
-        res.json(results);
-    } catch (error) {
-        console.error('Error searching pages:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
+app.get('/api/page/search', searchController);
 
 app.use("/api/userprofile/edit", editProfileRouter)
 app.use('/api/page', pageRouter)
@@ -47,3 +38,6 @@ connectDB()
 app.listen(PORT, () => {
     console.log("Server is runninnnng")
 })
+
+
+module.exports = app;

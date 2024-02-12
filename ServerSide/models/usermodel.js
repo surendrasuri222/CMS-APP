@@ -23,20 +23,16 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        default: ""
+        default: "Registered"
     },
     gender: {
         type: String,
         default: ""
     },
     age: {
-        type: Number,
+        type: String
 
     },
-    interests: {
-        type: Array,
-    },
-
 }, {
     timestamps: true
 })

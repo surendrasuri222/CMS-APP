@@ -72,26 +72,36 @@ const NewAndEdit = () => {
             <div className="border border dark rounded container-fluid w-50 shadow-lg p-3 mb-5 bg-white rounded">
                 <h1>{id ? 'Edit Page' : 'Create Page'}</h1>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="pageTitle" className="col-form-label">Page Title:</label>
+                    <label htmlFor="pageTitle" className="col-form-label">Page Title</label>
                     <input type="text" className="form-control" id="pageTitle" name="PageTitle" value={formData.PageTitle.charAt(0).toUpperCase() + formData.PageTitle.slice(1)} onChange={handleChange} required />
 
-                    <label htmlFor="category" className="col-form-label">Category:</label>
+                    <label htmlFor="category" className="col-form-label">Category</label>
                     <input type="text" className="form-control" id="category" name="category" value={formData.category.charAt(0).toUpperCase() + formData.category.slice(1)} onChange={handleChange} required />
                     <div className="form-group">
-                        <label htmlFor="director" className="col-form-label">director:</label>
+                        <label htmlFor="director" className="col-form-label">Author</label>
                         <input type="text" className="form-control" id="director" name="director" value={formData.director.charAt(0).toUpperCase() + formData.director.slice(1)} onChange={handleChange} required />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="description" className="col-form-label">Description:</label>
+                        <label htmlFor="description" className="col-form-label">Description</label>
                         <textarea id="description" className="form-control" rows={10} cols={20} name="description" value={formData.description.charAt(0).toUpperCase() + formData.description.slice(1)} onChange={handleChange} required></textarea>
                     </div>
-                    <div className="container-fluid">
+                    {/* <div className="container-fluid">
                         <button className="btn btn-secondary me-2" onClick={() => navigate('/pages')}>
                             Close
                         </button>
                         <button type="submit" className="btn btn-primary">
                             {id ? 'Update Page' : 'Add Page'}
                         </button>
+                    </div> */}
+                    <div className="container-fluid d-flex flex-row-reverse ">
+                        <button type="submit" className="btn btn-primary">
+                            {id ? 'Update Page' : 'Add Page'}
+                        </button>
+                        <button className="btn btn-secondary me-2" onClick={() => navigate('/pages')}>
+                            Cancel
+                        </button>
+
+
                     </div>
                 </form>
             </div>

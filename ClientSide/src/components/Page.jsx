@@ -67,17 +67,17 @@ const Page = () => {
                 </div>
                 <div className="row ps-5 pe-5 pt-2">
                     <div className="col">
-                        <p><strong>Category: </strong>{page.category}</p>
+                        <p><strong>Category </strong>{page.category}</p>
                     </div>
                 </div>
                 <div className="row ps-5 pe-5 pt-2">
                     <div className="col">
-                        <p><strong>Director:</strong>{page.director}</p>
+                        <p><strong>Author</strong>{page.director}</p>
                     </div>
                 </div>
                 <div className="row ps-5 pe-5 pt-2">
                     <div className="col">
-                        <p><strong>Description:</strong>{page.description}</p>
+                        <p><strong>Description</strong>{page.description}</p>
                     </div>
                 </div>
             </div>

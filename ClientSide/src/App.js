@@ -21,7 +21,6 @@ import ProfileEdit from "./components/ProfileEdit";
 import NewUser from "./components/NewUser";
 import { NewAndEdit } from "./components/NewAndEdit";
 import Search from "./components/Search";
-import NewPage from "./components/NewPage";
 import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import Unauth from "./components/Unauth";
@@ -63,7 +62,6 @@ function App() {
 
         <Route path="/users/add" element={<NewUser />} />
         <Route path="/pages" element={<Pages />} />
-        <Route path="/pages/add" element={<NewPage />} />
         <Route path="/page/:id" element={<Page />} />
         <Route path="/pages/edit/:id" element={<NewAndEdit />} />
         <Route path="/page/new" element={<NewAndEdit />} />

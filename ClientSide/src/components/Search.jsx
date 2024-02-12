@@ -63,7 +63,7 @@ const Search = () => {
     return (
         <>
             <div className="search-container">
-                <input type="text" placeholder="Search By Categories.." className="search-input" value={searchTerm}
+                <input type="text" placeholder="Search Page" className="search-input" value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)} />
                 <button className="search-button" >
                     <i className="fa fa-search"></i>

@@ -128,9 +128,9 @@ const Users = () => {
                                         users.map((user) => {
                                             return (
                                                 <tr className='p-2'>
-                                                    <td><NavLink to={`/users/user/${user._id}`}>{user.email}</NavLink></td>
+                                                    <td><NavLink to={`/users/user/${user._id}`}>{user.name}</NavLink></td>
                                                     <td>{user.email}</td>
-                                                    <td>{user.email}</td>
+                                                    <td>{user.role}</td>
                                                     <td><button className='btn btn-default bi bi-trash3-fill p-2' onClick={() => deleteHandler(user._id)}></button></td></tr>)
                                         })
                                     }

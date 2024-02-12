@@ -78,7 +78,7 @@ function Signup() {
                     <div className='form-element'>
                         <label htmlFor="name">Full Name :</label>
                         <div className="input-container">
-                            <input type='text' placeholder="Enter your Full Name" value={data.name} name="name" id="name" disabled={loading} onChange={handleOnChange} />
+                            <input type='text' placeholder="Enter your Full Name" value={data.name.charAt(0).toUpperCase() + data.name.slice(1)} name="name" id="name" disabled={loading} onChange={handleOnChange} />
                         </div>
                     </div>
                     <div className='form-element'>

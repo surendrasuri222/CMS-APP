@@ -120,6 +120,8 @@ import "tablesorter";
 import Footer from './Footer';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Categories() {
 
@@ -142,7 +144,14 @@ export default function Categories() {
                 console.log(err);
             });
     }, []);
+    const token = localStorage.getItem("token")
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        if (!token) {
+            navigate("/")
+        }
+    }, [])
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {

@@ -9,6 +9,7 @@ import '../css/navbar.scss' // Importing the CSS file
 
 const Navbar = () => {
     const navigate = useNavigate()
+    let token = localStorage.getItem("token");
 
     const [showMenu, setShowMenu] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
@@ -67,7 +68,10 @@ const Navbar = () => {
                 </div>
 
                 <div>
-                    <button className='btn btn primary btn-sm  btn-outline-light' onClick={handleLogOut}>Logout</button>
+                    {
+                        token ? <button className='btn btn primary btn-sm  btn-outline-light' onClick={handleLogOut}>Logout</button> : <NavLink to="/"><button className='btn btn primary btn-sm  btn-outline-light'>Login</button></NavLink>
+                    }
+                    {/* <button className='btn btn primary btn-sm  btn-outline-light' onClick={handleLogOut}>Logout</button> */}
                 </div>
 
 

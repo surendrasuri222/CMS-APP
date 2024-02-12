@@ -70,27 +70,32 @@ export default function NewUser() {
             <h2>New User</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="fullName" className="col-form-label">*Full Name:</label>
+                    <label htmlFor="fullName" className="col-form-label">Full Name</label>
                     <input type="text" className="form-control" id="fullName" name="name" value={user.name} onChange={handleChange} required />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email" className="col-form-label">*Email:</label>
+                    <label htmlFor="email" className="col-form-label">Email</label>
                     <input type="email" className="form-control" id="email" name="email" value={user.email} onChange={handleChange} required />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password" className="col-form-label">*Password:</label>
+                    <label htmlFor="password" className="col-form-label">Password</label>
                     <input type="password" className="form-control" id="password" name="password" value={user.password} onChange={handleChange} required />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="group" className="col-form-label">*Group:</label>
+                    <label htmlFor="group" className="col-form-label">Group</label>
                     <input type="text" className="form-control" id="group" />
                 </div>
 
 
 
-                <div className="modal-footer">
+                {/* <div className="modal-footer">
                     <NavLink to='/users'><button type="button" className="btn btn-secondary me-2" data-dismiss="modal">Cancel</button></NavLink>
                     <button type="submit" className="btn btn-primary" onClick={addUser}>Add User</button>
+                </div> */}
+                <div className="d-flex flex-row-reverse">
+                    <button type="submit" className="btn btn-primary me-2" onClick={addUser}>Add User</button>
+                    <NavLink to='/users'><button type="button" className="btn btn-secondary me-2" data-dismiss="modal">Cancel</button></NavLink>
+
                 </div>
             </form>
         </div>

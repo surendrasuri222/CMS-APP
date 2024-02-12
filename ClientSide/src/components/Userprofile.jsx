@@ -10,8 +10,7 @@ function Userprofile() {
         email: "",
         role: "",
         gender: "",
-        age: 0,
-        // interests: ["action"]
+        age: 0
     })
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
@@ -85,17 +84,17 @@ function Userprofile() {
                                         <p><strong>Role:</strong> {data?.role}</p>
                                         <p><strong>Gender:</strong> {data?.gender}</p>
                                         <p><strong>Age:</strong> {data?.age}</p>
-                                        <p><strong>Interests:</strong></p>
+                                        {/* <p><strong>Interests:</strong></p>
                                         <ul>
-                                            {/* {data.interests != null && (
+                                            {data.interests != null && (
                                                 <ul>
                                                     {data.interests.map((interest, i) => (
                                                         <li key={i}>{interest}</li>
                                                     ))}
                                                 </ul>
-                                            )} */}
+                                            )}
 
-                                        </ul>
+                                        </ul> */}
 
 
                                     </div>
