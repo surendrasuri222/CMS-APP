@@ -8,6 +8,9 @@ const userRouter = require("./routes/userRouter")
 const pageRouter = require("./routes/pageroute");
 const Page = require('./models/pageModel')
 const categoriesRouter = require("./routes/categoriesRoute")
+const editProfileRouter = require("./routes/profileEditRouter")
+const verifyToken = require("./middleware/verifyToken")
+
 // const User = require("./models/usermodel");
 
 const app = express()
@@ -35,7 +38,7 @@ app.get('/api/page/search', async (req, res) => {
     }
 });
 
-
+app.use("/api/userprofile/edit", editProfileRouter)
 app.use('/api/page', pageRouter)
 app.use("/api/users", userRouter);
 app.use('/api', router)

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import { getPage } from "../apiService/pageApiService";
+import { useNavigate } from 'react-router-dom';
+
 
 const URL = "http://localhost:4000/api/page/search?q=";
 
@@ -23,6 +25,14 @@ const Search = () => {
         };
         fetchpageData([]);
     }, []);
+
+    const navigate = useNavigate()
+    const token = localStorage.getItem("token")
+    useEffect(() => {
+        if (!token) {
+            navigate("/")
+        }
+    }, [])
 
     const fetchData = async (apiURL) => {
         setLoading(true);
@@ -52,7 +62,7 @@ const Search = () => {
 
     return (
         <>
-        <div className="search-container">
+            <div className="search-container">
                 <input type="text" placeholder="Search By Categories.." className="search-input" value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)} />
                 <button className="search-button" >

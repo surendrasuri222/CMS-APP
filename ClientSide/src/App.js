@@ -22,9 +22,23 @@ import NewUser from "./components/NewUser";
 import { NewAndEdit } from "./components/NewAndEdit";
 import Search from "./components/Search";
 import NewPage from "./components/NewPage";
+import { useState, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
+import Unauth from "./components/Unauth";
 
 
 function App() {
+
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+  const token = localStorage.getItem("token")
+  useEffect(() => {
+    if (token) {
+      setIsAdminLoggedIn(jwtDecode(token).isAdmin);
+      console.log(jwtDecode(token).isAdmin)
+    } else {
+      setIsAdminLoggedIn(false); // Set isAdminLoggedIn to false if token is not present
+    }
+  }, [token]);
   return (
 
     <>
@@ -37,11 +51,17 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/category" element={<Category />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* <Route path="/pages/edit" element={<EditPages />} /> */}
-        <Route path="/users" element={<Users />} />
-        {/* <Route path="/users/edit" element={<EditUsers />} /> */}
+        {isAdminLoggedIn ? (
+          <Route path="/users" element={<Users />} />
+        ) : (
+          <Route path="/users" element={<Unauth />} />
+        )}
+
+        {
+          token && <Route path="/users/add" element={<NewUser />} />
+        }
+
         <Route path="/users/add" element={<NewUser />} />
-        {/* <Route path="/profile" element={<Profile />} /> */}
         <Route path="/pages" element={<Pages />} />
         <Route path="/pages/add" element={<NewPage />} />
         <Route path="/page/:id" element={<Page />} />
@@ -54,6 +74,7 @@ function App() {
         <Route path="/Categories" element={<Categories />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/userprofile/edit/:id" element={<ProfileEdit />} />
 
 
       </Routes>

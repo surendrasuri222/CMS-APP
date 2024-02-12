@@ -50,6 +50,8 @@ function Signin() {
             toast.success(dataResponse.message)
             localStorage.setItem('token', dataResponse.token)
             navigate('/dashboard')
+            window.location.reload();
+
         }
     }
 

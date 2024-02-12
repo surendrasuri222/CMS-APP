@@ -6,6 +6,18 @@ exports.GetPage = (req, res) => {
         .catch((err) => res.status(400).send({ error: err }))
 }
 
+// get latest pages
+exports.getLatestPages = (req, res) => {
+    Page.find().sort({ _id: -1 }).limit(5)
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(400).send({ error: err })
+        })
+}
+
+
 exports.createPage = (req, res) => {
     const NewPage = req.body;
     if (NewPage != null) {

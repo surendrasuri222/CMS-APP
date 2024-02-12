@@ -4,22 +4,32 @@ import "tablesorter";
 import { NavLink } from 'react-router-dom';
 import axios from "axios";
 import Footer from './Footer';
- 
- 
+import { useNavigate } from 'react-router-dom';
+
+
+
 const Users = () => {
- 
+
     useEffect(() => {
         $("#sort-table").tablesorter({
             sortList: [[0, 0], [1, 0]]
         });
     }, []);
- 
+
     const [users, setUsers] = useState([]);
- 
- 
+    const navigate = useNavigate()
+
+    const token = localStorage.getItem("token")
+    useEffect(() => {
+        if (!token) {
+            navigate("/")
+        }
+    }, [])
+
+
     // const { id } = useParams();
     useEffect(() => {
- 
+
         // Fetching the data using axios
         axios.get("http://localhost:4000/api/users")
             .then((users) => {
@@ -30,16 +40,16 @@ const Users = () => {
                 console.log(err);
             })
         // console.log(users)
- 
- 
- 
+
+
+
     }, [])
- 
+
     // deleting the user
     const deleteHandler = (id) => {
- 
+
         console.log(id);
- 
+
         if (window.confirm(`Are you sure you want to delete this user?`)) {
             axios.delete(`http://localhost:4000/api/users/${id}`)
                 .then((response) => {
@@ -54,7 +64,24 @@ const Users = () => {
                 })
         }
     }
- 
+
+    //sorting
+    const sortColumn = (columnName) => {
+        const sortedUsers = [...users].sort((a, b) => {
+            if (a[columnName] < b[columnName]) return -1;
+            if (a[columnName] > b[columnName]) return 1;
+            return 0;
+        });
+        // Check if the column was previously sorted in ascending order
+        const isAscending = users === sortedUsers || users[0][columnName] < users[users.length - 1][columnName];
+        // If it was sorted in ascending order, sort in descending order
+        if (isAscending) {
+            sortedUsers.reverse();
+        }
+        setUsers(sortedUsers);
+    }
+
+
     return (
         <>
             <section>
@@ -75,28 +102,28 @@ const Users = () => {
                                         </div>
                                     </h1>
                                 </div>
- 
- 
+
+
                             </div>
- 
+
                             <ol class="breadcrumb">
                                 <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                                 <li class="active">Users</li>
                             </ol>
- 
+
                             <table id="sort-table" class="table table-striped tablesorter table-hover">
                                 <thead>
                                     <tr>
- 
-                                        <th>Full Name <i class="glyphicon glyphicon-chevron-down"></i></th>
-                                        <th>Email <i class="glyphicon glyphicon-chevron-down"></i></th>
-                                        <th>Group <i class="glyphicon glyphicon-chevron-down"></i></th>
+
+                                        <th onClick={() => sortColumn('name')}>Full Name <i class="glyphicon glyphicon-chevron-down"></i></th>
+                                        <th onClick={() => sortColumn('email')}>Email <i class="glyphicon glyphicon-chevron-down"></i></th>
+                                        <th onClick={() => sortColumn('role')}>Group <i class="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Action <i class="glyphicon glyphicon-chevron-down"></i></th>
                                     </tr>
                                 </thead>
- 
+
                                 <tbody>
- 
+
                                     {
                                         users.map((user) => {
                                             return (
@@ -130,16 +157,16 @@ const Users = () => {
                                     </ul>
                                 </nav>
                             </div>
- 
+
                         </div>
                     </div>
                 </div>
- 
+
             </section >
- 
+
             <Footer />
         </>
     )
 }
- 
+
 export default Users

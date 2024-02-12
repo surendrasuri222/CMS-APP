@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getPage } from '../apiService/pageApiService';
 import axios from 'axios';
+import Footer from './Footer'
 
 const Pages = () => {
     const navigate = useNavigate();
@@ -48,6 +49,8 @@ const Pages = () => {
     };
 
 
+
+
     const handleNew = () => {
         navigate("/page/new");
     };
@@ -56,6 +59,22 @@ const Pages = () => {
         // Redirect to the edit page form with the page ID
         navigate(`/pages/edit/${id}`);
     };
+
+    //sorting
+    const sortColumn = (columnName) => {
+        const sortedPages = [...pages].sort((a, b) => {
+            if (a[columnName] < b[columnName]) return -1;
+            if (a[columnName] > b[columnName]) return 1;
+            return 0;
+        });
+        // Check if the column was previously sorted in ascending order
+        const isAscending = pages === sortedPages || pages[0][columnName] < pages[pages.length - 1][columnName];
+        // If it was sorted in ascending order, sort in descending order
+        if (isAscending) {
+            sortedPages.reverse();
+        }
+        setPages(sortedPages);
+    }
 
     return (
         <>
@@ -81,10 +100,10 @@ const Pages = () => {
                         <table id="sort-table" className="table table-striped tablesorter mx-auto">
                             <thead>
                                 <tr>
-                                    <th>Page Title <i className="glyphicon glyphicon-chevron-down"></i></th>
-                                    <th>Category <i className="glyphicon glyphicon-chevron-down"></i></th>
-                                    <th>Director <i className="glyphicon glyphicon-chevron-down"></i></th>
-                                    <th>Actions <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                    <th onClick={() => sortColumn('PageTitle')}>Page Title <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                    <th onClick={() => sortColumn('category')}>Category <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                    <th onClick={() => sortColumn('director')}>Director <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                    <th >Actions <i className="glyphicon glyphicon-chevron-down"></i></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -105,19 +124,19 @@ const Pages = () => {
                         <nav aria-label="Page navigation">
                             <ul className="pagination">
                                 <li>
-                                    <a href="#" aria-label="Previous" onClick={() => handlePageChange(currentPage - 1)}>
+                                    <a href="" aria-label="Previous" onClick={() => handlePageChange(currentPage - 1)}>
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
                                 {Array.from({ length: totalPages }).map((_, index) => (
                                     <li key={index} className={currentPage === index + 1 ? 'active' : ''}>
-                                        <a href="#" onClick={() => handlePageChange(index + 1)}>
+                                        <a href="" onClick={() => handlePageChange(index + 1)}>
                                             {index + 1}
                                         </a>
                                     </li>
                                 ))}
                                 <li>
-                                    <a href="#" aria-label="Next" onClick={() => handlePageChange(currentPage + 1)}>
+                                    <a href="" aria-label="Next" onClick={() => handlePageChange(currentPage + 1)}>
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>
@@ -126,9 +145,7 @@ const Pages = () => {
                     </div>
                 </div>
             </section>
-            <footer>
-                <p>Copyright 2017, All Rights Reserved</p>
-            </footer>
+            <Footer />
         </>
     );
 };
