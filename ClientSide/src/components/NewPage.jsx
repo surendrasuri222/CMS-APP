@@ -21,8 +21,8 @@ export default function NewPage() {
                     <label htmlFor="interests" className="col-form-label">Description</label>
                     <textarea className="form-control" id="interests" rows="5" placeholder="Enter your description"></textarea>
                 </div>
-                <div className="container-fluid d-flex flex-row-reverse">
-                    <NavLink to='/pages'><button className="btn btn-primary">Add Page</button></NavLink><NavLink to='/pages'><button className="btn btn-secondary me-2">Cancel</button></NavLink>
+                <div className="container-fluid">
+                    <NavLink to='/pages'><button className="btn btn-secondary me-2">Close</button></NavLink> <NavLink to='/pages'><button className="btn btn-primary">Add Page</button></NavLink>
                 </div>
             </form>
         </div>

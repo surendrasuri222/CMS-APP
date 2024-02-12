@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getPage } from '../apiService/pageApiService';
 import axios from 'axios';
-import { NavLink } from "react-router-dom";
-
 
 const Pages = () => {
     const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(1);
     const [pages, setPages] = useState([]);
-
+    const token = localStorage.getItem("token")
+    useEffect(() => {
+        if (!token) {
+            navigate("/")
+        }
+    }, [])
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -56,7 +59,7 @@ const Pages = () => {
 
     return (
         <>
-            {/* <section>
+            <section>
                 <div className="container  shadow-lg p-3 mb-5 bg-white rounded p-5">
                     <div className="col-md-12">
                         <div className="row">
@@ -68,81 +71,58 @@ const Pages = () => {
                                     <button className="btn btn-primary" onClick={handleNew}>NEW</button>
                                 </div>
                             </div>
-                        </div> */}
-            <section>
-                <div class="container shadow-lg p-3 mb-5 bg-white rounded p-5">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <h1 className="book-header">
-                                        <div className="row">
-                                            <div className=" col xs={6} sm={6} md={6} lg={6}">
-                                                <i className="glyphicon glyphicon-file"></i> Pages
-                                            </div>
-                                            <div className="col xs={6} sm={6} md={6} lg={6} d-flex flex-row-reverse">
-                                                {/* <UserModal /> */}
-                                                <NavLink to="/pages/add"><button type="button" class="btn btn-primary shadow-lg"><i className="glyphicon glyphicon-plus"></i> New</button></NavLink>
-                                            </div>
-                                        </div>
-                                    </h1>
-                                </div>
-
-
-                            </div>
-
-
-                            <ol className="breadcrumb">
-                                <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-                                <li className="active">Pages</li>
-                            </ol>
-
-                            <table id="sort-table" className="table table-striped tablesorter mx-auto">
-                                <thead>
-                                    <tr>
-                                        <th>Page Title <i className="glyphicon glyphicon-chevron-down"></i></th>
-                                        <th>Category <i className="glyphicon glyphicon-chevron-down"></i></th>
-                                        <th>Director <i className="glyphicon glyphicon-chevron-down"></i></th>
-                                        <th>Actions <i className="glyphicon glyphicon-chevron-down"></i></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {displayedPages.map((item) => (
-                                        <tr key={item._id}>
-                                            <td><Link to={`/page/${item._id}`}>{item.PageTitle}</Link></td>
-                                            <td>{item.category}</td>
-                                            <td>{item.director}</td>
-                                            <td>
-                                                <button className="btn btn-default bi bi-pencil-square p-2 me-2" onClick={() => editHandler(item._id)}></button>
-                                                <button onClick={() => deleteHandler(item._id)} className='btn btn-default bi bi-trash3-fill p-2'></button>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-
-                            <nav aria-label="Page navigation">
-                                <ul className="pagination">
-                                    <li>
-                                        <a href="#" aria-label="Previous" onClick={() => handlePageChange(currentPage - 1)}>
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    {Array.from({ length: totalPages }).map((_, index) => (
-                                        <li key={index} className={currentPage === index + 1 ? 'active' : ''}>
-                                            <a href="#" onClick={() => handlePageChange(index + 1)}>
-                                                {index + 1}
-                                            </a>
-                                        </li>
-                                    ))}
-                                    <li>
-                                        <a href="#" aria-label="Next" onClick={() => handlePageChange(currentPage + 1)}>
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
                         </div>
+
+                        <ol className="breadcrumb">
+                            <li><a href="/dashboard">Dashboard</a></li>
+                            <li className="active">Pages</li>
+                        </ol>
+
+                        <table id="sort-table" className="table table-striped tablesorter mx-auto">
+                            <thead>
+                                <tr>
+                                    <th>Page Title <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                    <th>Category <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                    <th>Director <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                    <th>Actions <i className="glyphicon glyphicon-chevron-down"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {displayedPages.map((item) => (
+                                    <tr key={item._id}>
+                                        <td><Link to={`/page/${item._id}`}>{item.PageTitle}</Link></td>
+                                        <td>{item.category}</td>
+                                        <td>{item.director}</td>
+                                        <td>
+                                            <button className="btn btn-default bi bi-pencil-square p-2 me-2" onClick={() => editHandler(item._id)}></button>
+                                            <button onClick={() => deleteHandler(item._id)} className='btn btn-default bi bi-trash3-fill p-2'></button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+
+                        <nav aria-label="Page navigation">
+                            <ul className="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous" onClick={() => handlePageChange(currentPage - 1)}>
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                {Array.from({ length: totalPages }).map((_, index) => (
+                                    <li key={index} className={currentPage === index + 1 ? 'active' : ''}>
+                                        <a href="#" onClick={() => handlePageChange(index + 1)}>
+                                            {index + 1}
+                                        </a>
+                                    </li>
+                                ))}
+                                <li>
+                                    <a href="#" aria-label="Next" onClick={() => handlePageChange(currentPage + 1)}>
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </section>

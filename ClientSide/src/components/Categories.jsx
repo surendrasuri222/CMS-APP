@@ -3,7 +3,6 @@ import $ from "jquery";
 import "tablesorter";
 import Footer from './Footer';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
 
 export default function Categories() {
 
@@ -57,7 +56,7 @@ export default function Categories() {
                                 </div>
                             </div>
                             <ol className="breadcrumb">
-                                <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+                                <li><a href="/dashboard">Dashboard</a></li>
                                 <li className="active">Categories</li>
                             </ol>
                             <table id="sort-table" className="table table-striped tablesorter table-hover">
