@@ -6,13 +6,9 @@ const userSignin = require('../controllers/userSignin')
 const userProfile = require('../controllers/userProfile')
 const verifyToken = require('../middleware/verifyToken')
 
-
-
 //router
 router.post("/signup", userSignUp)
 router.post('/', userSignin)
 router.post('/userprofile', verifyToken, userProfile)
-
-
 
 module.exports = router

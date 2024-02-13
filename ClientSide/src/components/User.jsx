@@ -6,12 +6,9 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const User = () => {
-
-
-
     const [users, SetUsers] = useState([])
-
     const { id } = useParams();
+
     // Fetching the user based on id
     useEffect(() => {
         axios.get(`http://localhost:4000/api/users/${id}`)

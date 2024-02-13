@@ -1,10 +1,10 @@
 
 
 import axios from 'axios';
-// To get the data of all pages in database
 
 const baseUrl = 'http://localhost:4000/api/page';
 
+// To get the data of all pages in database
 const getPage = async () => {
     try {
         const response = await axios.get(`${baseUrl}`);
@@ -41,7 +41,7 @@ export const postPage = async (formData) => {
         const response = await axios.post(`${baseUrl}`, formData);
         return response.data;
     } catch (error) {
-        throw error;
+        throw new Error('Error occured');
     }
 };
 
@@ -64,7 +64,7 @@ const getOnePage = async (id) => {
 };
 
 
-
+// delete page through Id
 const deletePage = async (id) => {
     const url = `${baseUrl}/${id}`;
 

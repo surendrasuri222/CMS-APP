@@ -42,10 +42,6 @@ function Userprofile() {
     return (
 
         <>
-
-
-
-
             <section>
                 <div class="container shadow-lg p-3 mb-5 bg-white rounded p-5">
                     <div className="row">

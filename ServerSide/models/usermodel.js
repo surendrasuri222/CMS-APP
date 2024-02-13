@@ -30,9 +30,9 @@ const userSchema = new mongoose.Schema({
         default: ""
     },
     age: {
-        type: String
-
-    },
+        type: Number,
+        default: 0
+    }
 }, {
     timestamps: true
 })

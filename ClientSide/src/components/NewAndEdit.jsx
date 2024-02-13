@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import $ from "jquery";
-import "tablesorter";
+
 
 const NewAndEdit = () => {
-
-    useEffect(() => {
-        $("#sort-table").tablesorter({
-            sortList: [[0, 0], [1, 0]]
-        });
-    }, []);
-
     const { id } = useParams()
     const navigate = useNavigate();
     const baseUrl = 'http://localhost:4000/api/page';
+
+
+
     const [formData, setFormData] = useState({
         PageTitle: '',
         category: '',
@@ -43,7 +38,6 @@ const NewAndEdit = () => {
         setFormData((prevForm) => ({
             ...prevForm,
             [e.target.name]: e.target.value
-            // e.target.value
         }));
     };
 
@@ -85,14 +79,7 @@ const NewAndEdit = () => {
                         <label htmlFor="description" className="col-form-label">Description</label>
                         <textarea id="description" className="form-control" rows={10} cols={20} name="description" value={formData.description.charAt(0).toUpperCase() + formData.description.slice(1)} onChange={handleChange} required></textarea>
                     </div>
-                    {/* <div className="container-fluid">
-                        <button className="btn btn-secondary me-2" onClick={() => navigate('/pages')}>
-                            Close
-                        </button>
-                        <button type="submit" className="btn btn-primary">
-                            {id ? 'Update Page' : 'Add Page'}
-                        </button>
-                    </div> */}
+
                     <div className="container-fluid d-flex flex-row-reverse ">
                         <button type="submit" className="btn btn-primary">
                             {id ? 'Update Page' : 'Add Page'}

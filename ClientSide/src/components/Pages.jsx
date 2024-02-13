@@ -10,13 +10,15 @@ const Pages = () => {
     const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(1);
     const [pages, setPages] = useState([]);
+    const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
     const token = localStorage.getItem("token")
+
     useEffect(() => {
         if (!token) {
             navigate("/")
         }
     }, [])
-    const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+
     useEffect(() => {
         if (token) {
             setIsAdminLoggedIn(jwtDecode(token).isAdmin);
@@ -37,6 +39,7 @@ const Pages = () => {
         fetchData([currentPage]);
     }, [currentPage]);
 
+    //pagination
     const itemsToShow = 5;
     const totalItems = pages.length;
     const totalPages = Math.ceil(totalItems / itemsToShow);
@@ -58,9 +61,6 @@ const Pages = () => {
             console.error(`Error deleting the page: ${err.message}`);
         }
     };
-
-
-
 
     const handleNew = () => {
         navigate("/page/new");

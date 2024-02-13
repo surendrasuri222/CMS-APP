@@ -1,20 +1,19 @@
 
 import React, { useState, useEffect } from 'react';
-import Select from 'react-select';
 import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { NavLink } from 'react-router-dom'
 const ProfileEdit = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-
-    const baseUrl = 'http://localhost:4000/api/userprofile/edit';
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         age: '',
         gender: ''
     });
+    const baseUrl = 'http://localhost:4000/api/userprofile/edit';
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -28,9 +27,7 @@ const ProfileEdit = () => {
             }
         };
         fetchData()
-    }
-        , [])
-
+    }, [])
 
 
     const handleChange = (e) => {
@@ -39,8 +36,6 @@ const ProfileEdit = () => {
             [e.target.name]: e.target.value
         }));
     };
-
-
 
     const handleUpdate = async (e) => {
         e.preventDefault();

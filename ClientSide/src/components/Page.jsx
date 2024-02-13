@@ -1,6 +1,3 @@
-
-
-
 import { useState, useEffect } from "react";
 import { getOnePage } from "../apiService/pageApiService";
 import { useParams } from "react-router-dom";

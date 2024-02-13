@@ -1,7 +1,6 @@
 process.env.NODE_ENV = 'test';
 
 let mongoose = require("mongoose");
-let Page = require('../models/pageModel');
 
 //Require the dev-dependencies
 

@@ -5,12 +5,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getSortedPages } from '../apiService/pageApiService';
 import { useNavigate } from 'react-router-dom';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Footer';
+
 const Dashboard = () => {
 
-    const [users, setUsers] = useState([]);
     const [pages, setPages] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [categoryCounts, setCategoryCounts] = useState([]);
@@ -75,9 +74,6 @@ const Dashboard = () => {
     }, [categories]);
 
 
-
-
-
     return (
         <>
             <section>
@@ -129,11 +125,9 @@ const Dashboard = () => {
                                             <tr>
                                                 <th>
                                                     Category Title
-                                                    {/* <i className="glyphicon glyphicon-chevron-down"></i> */}
                                                 </th>
                                                 <th className='text-center'>
                                                     Total Pages
-                                                    {/* <i className="glyphicon glyphicon-chevron-down"></i> */}
                                                 </th>
                                             </tr>
                                         </thead>

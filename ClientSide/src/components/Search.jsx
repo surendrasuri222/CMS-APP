@@ -12,6 +12,8 @@ const Search = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [pages, setPages] = useState([]);
+    const navigate = useNavigate()
+    const token = localStorage.getItem("token")
 
 
     useEffect(() => {
@@ -26,8 +28,7 @@ const Search = () => {
         fetchpageData([]);
     }, []);
 
-    const navigate = useNavigate()
-    const token = localStorage.getItem("token")
+
     useEffect(() => {
         if (!token) {
             navigate("/")

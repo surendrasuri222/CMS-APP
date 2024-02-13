@@ -26,7 +26,6 @@ exports.getLatestCategories = (req, res) => {
 }
 
 // get the count
-// get the count
 exports.getCount = async (req, res) => {
     try {
         const categories = await Categories.find();

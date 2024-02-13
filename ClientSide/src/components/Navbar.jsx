@@ -2,17 +2,14 @@ import { NavLink } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'remixicon/fonts/remixicon.css'
 import { useNavigate } from 'react-router-dom'
-
-
 import React, { useState } from 'react';
 import '../css/navbar.scss' // Importing the CSS file
 
 const Navbar = () => {
     const navigate = useNavigate()
-    let token = localStorage.getItem("token");
-
     const [showMenu, setShowMenu] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
+    let token = localStorage.getItem("token");
 
     const toggleMenu = () => {
         setShowMenu(!showMenu);
@@ -59,10 +56,6 @@ const Navbar = () => {
                     </li>
 
                 </ul>
-
-                {/* <div className="nav__close my-auto" onClick={toggleMenu}>
-                    <i className="ri-close-line"></i>
-                </div> */}
             </div>
             <NavLink to='/search'><i className="ri-search-line nav__search  my-auto" onClick={toggleSearch} style={{ fontSize: '18px' }}></i></NavLink>
 
@@ -78,7 +71,7 @@ const Navbar = () => {
                     {
                         token ? <button className='btn btn primary btn-sm  btn-outline-light' onClick={handleLogOut}>Logout</button> : <NavLink to="/"><button className='btn btn primary btn-sm  btn-outline-light'>Login</button></NavLink>
                     }
-                    {/* <button className='btn btn primary btn-sm  btn-outline-light' onClick={handleLogOut}>Logout</button> */}
+
                 </div>
 
 

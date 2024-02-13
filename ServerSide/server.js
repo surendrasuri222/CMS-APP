@@ -6,13 +6,9 @@ const connectDB = require("./DataBase/database")
 const router = require("./routes/authroute")
 const userRouter = require("./routes/userRouter")
 const pageRouter = require("./routes/pageroute");
-const Page = require('./models/pageModel')
 const categoriesRouter = require("./routes/categoriesRoute")
 const editProfileRouter = require("./routes/profileEditRouter")
-const verifyToken = require("./middleware/verifyToken")
 const searchController = require('./controllers/searchController')
-
-// const User = require("./models/usermodel");
 
 const app = express()
 app.use(cors())

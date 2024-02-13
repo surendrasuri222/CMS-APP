@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import $ from "jquery";
-import "tablesorter";
 import { NavLink } from 'react-router-dom';
 import axios from "axios";
 import Footer from './Footer';
@@ -10,12 +8,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Users = () => {
     const [currentPage, setCurrentPage] = useState(1);
-
-    // useEffect(() => {
-    //     $("#sort-table").tablesorter({
-    //         sortList: [[0, 0], [1, 0]]
-    //     });
-    // }, []);
 
     const [users, setUsers] = useState([]);
     const navigate = useNavigate()
@@ -28,7 +20,6 @@ const Users = () => {
     }, [])
 
 
-    // const { id } = useParams();
     useEffect(() => {
 
         // Fetching the data using axios
@@ -106,7 +97,6 @@ const Users = () => {
                                                 <i className="glyphicon glyphicon-file"></i> Users
                                             </div>
                                             <div className="col xs={6} sm={6} md={6} lg={6} d-flex flex-row-reverse">
-                                                {/* <UserModal /> */}
                                                 <NavLink to="/users/add"><button type="button" class="btn btn-primary shadow-lg"><i className="glyphicon glyphicon-plus"></i> New</button></NavLink>
                                             </div>
                                         </div>

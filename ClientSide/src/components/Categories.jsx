@@ -1,7 +1,5 @@
 
 import React, { useEffect, useState } from 'react';
-import $ from "jquery";
-import "tablesorter";
 import Footer from './Footer';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
@@ -70,11 +68,9 @@ export default function Categories() {
                                     <tr>
                                         <th>
                                             Category Title
-                                            <i className="glyphicon glyphicon-chevron-down"></i>
                                         </th>
                                         <th className='text-center'>
                                             Total Pages
-                                            <i className="glyphicon glyphicon-chevron-down"></i>
                                         </th>
                                     </tr>
                                 </thead>

@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken')
-const userModel = require('../models/usermodel')
 
 async function verifyToken(req, res, next) {
     try {
@@ -21,8 +20,6 @@ async function verifyToken(req, res, next) {
 
             next()
         })
-
-
 
     } catch (err) {
         res.status(500).json({

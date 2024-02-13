@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom"
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function NewUser() {
 
@@ -10,15 +10,14 @@ export default function NewUser() {
         name: "",
         email: "",
         password: ""
-        // group: ""
     })
+    const [showPopup, setShowPopup] = useState(false);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setUser({ ...user, [name]: value });
         console.log(event.target.value);
     }
-
 
     const addUser = () => {
 
@@ -44,13 +43,6 @@ export default function NewUser() {
         })
     }
 
-    const [interests, setInterests] = useState([]);
-    const [showPopup, setShowPopup] = useState(false);
-
-    const handleInterestChange = (selectedOptions) => {
-        console.log(selectedOptions);
-        setInterests(selectedOptions.map(option => option.value));
-    };
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -65,6 +57,7 @@ export default function NewUser() {
             setShowPopup(true);
         }
     };
+
     return (
         <div className="border border dark rounded container-fluid w-50 shadow-lg p-3 mb-5 bg-white rounded">
             <h2>New User</h2>
@@ -86,12 +79,6 @@ export default function NewUser() {
                     <input type="text" className="form-control" id="group" disabled />
                 </div>
 
-
-
-                {/* <div className="modal-footer">
-                    <NavLink to='/users'><button type="button" className="btn btn-secondary me-2" data-dismiss="modal">Cancel</button></NavLink>
-                    <button type="submit" className="btn btn-primary" onClick={addUser}>Add User</button>
-                </div> */}
                 <div className="d-flex flex-row-reverse">
                     <button type="submit" className="btn btn-primary me-2" onClick={addUser}>Add User</button>
                     <NavLink to='/users'><button type="button" className="btn btn-secondary me-2" data-dismiss="modal">Cancel</button></NavLink>

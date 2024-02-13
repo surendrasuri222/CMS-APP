@@ -12,5 +12,4 @@ const Pageschema = new Schema({
 
 })
 
-
 module.exports = mongoose.model('Pages', Pageschema)

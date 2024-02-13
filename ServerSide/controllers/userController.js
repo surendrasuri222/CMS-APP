@@ -59,9 +59,6 @@ exports.getUserByIdAndDelete = (req, res) => {
     }
 }
 
-
-
-
 // create a new user
 exports.createUser = async (req, res) => {
     const newUser = req.body;
