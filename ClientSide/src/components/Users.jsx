@@ -9,12 +9,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Users = () => {
+    const [currentPage, setCurrentPage] = useState(1);
 
-    useEffect(() => {
-        $("#sort-table").tablesorter({
-            sortList: [[0, 0], [1, 0]]
-        });
-    }, []);
+    // useEffect(() => {
+    //     $("#sort-table").tablesorter({
+    //         sortList: [[0, 0], [1, 0]]
+    //     });
+    // }, []);
 
     const [users, setUsers] = useState([]);
     const navigate = useNavigate()
@@ -80,6 +81,15 @@ const Users = () => {
         }
         setUsers(sortedUsers);
     }
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+    const itemsToShow = 5;
+    const totalItems = users.length;
+    const totalPages = Math.ceil(totalItems / itemsToShow);
+    const startIndex = (currentPage - 1) * itemsToShow;
+    const endIndex = startIndex + itemsToShow;
+    const displayedUsers = users.slice(startIndex, endIndex);
 
 
     return (
@@ -125,7 +135,7 @@ const Users = () => {
                                 <tbody>
 
                                     {
-                                        users.map((user) => {
+                                        displayedUsers.map((user) => {
                                             return (
                                                 <tr className='p-2'>
                                                     <td><NavLink to={`/users/user/${user._id}`}>{user.name}</NavLink></td>
@@ -138,19 +148,21 @@ const Users = () => {
                             </table>
                             <div className="d-flex justify-content-center h-2 ">
                                 <nav aria-label="Page navigation">
-                                    <ul class="pagination">
+                                    <ul className="pagination">
                                         <li>
-                                            <a href="#" aria-label="Previous">
+                                            <a href="#" aria-label="Previous" onClick={() => handlePageChange(currentPage - 1)}>
                                                 <span aria-hidden="true">&laquo;</span>
                                             </a>
                                         </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
+                                        {Array.from({ length: totalPages }).map((_, index) => (
+                                            <li key={index} className={currentPage === index + 1 ? 'active' : ''}>
+                                                <a href="#" onClick={() => handlePageChange(index + 1)}>
+                                                    {index + 1}
+                                                </a>
+                                            </li>
+                                        ))}
                                         <li>
-                                            <a href="#" aria-label="Next">
+                                            <a href="#" aria-label="Next" onClick={() => handlePageChange(currentPage + 1)}>
                                                 <span aria-hidden="true">&raquo;</span>
                                             </a>
                                         </li>

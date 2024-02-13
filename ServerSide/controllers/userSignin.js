@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs')
 async function userSignin(req, res) {
     try {
         const { email, password } = req.body
-
+        // checking validation from server
         if (!email) {
             return res.status(400).json({
                 message: "Please provide email",
@@ -34,6 +34,7 @@ async function userSignin(req, res) {
 
         // Compare password hashes
         bcrypt.compare(password, user.password, function (err, passwordMatch) {
+            //passwordMatch is true
             if (err) {
                 return res.status(400).json({
                     message: "Check your password",

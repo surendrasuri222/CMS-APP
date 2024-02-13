@@ -82,8 +82,8 @@ export default function NewUser() {
                     <input type="password" className="form-control" id="password" name="password" value={user.password} onChange={handleChange} required />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="group" className="col-form-label">Group</label>
-                    <input type="text" className="form-control" id="group" />
+                    <label htmlFor="group" className="col-form-label" >Group</label>
+                    <input type="text" className="form-control" id="group" disabled />
                 </div>
 
 

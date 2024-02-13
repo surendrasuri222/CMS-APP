@@ -41,17 +41,7 @@ const ProfileEdit = () => {
         }));
     };
 
-    // const handleInterestChange = (selectedOptions) => {
-    //     setInterests(selectedOptions.map(option => option.value));
-    // };
 
-    const interestOptions = [
-        { value: 'Sports', label: 'Sports' },
-        { value: 'Music', label: 'Music' },
-        { value: 'Art', label: 'Art' },
-        { value: 'Reading', label: 'Reading' },
-        { value: 'Cooking', label: 'Cooking' }
-    ];
 
     const handleUpdate = async (e) => {
         e.preventDefault();
@@ -85,19 +75,7 @@ const ProfileEdit = () => {
                         <option>Other</option>
                     </select>
                 </div>
-                {/* <div className="form-group">
-                    <label htmlFor="interests" className="col-form-label">Interests:</label>
-                    <Select
-                        id="interests"
-                        isMulti
-                        options={interestOptions}
-                        onChange={handleInterestChange}
-                        closeMenuOnSelect={false}
-                    />
-                </div> */}
-                {/* <div className="text-center">
-                    <button type="submit" onClick={handleUpdate} className="btn btn-primary">Update</button>
-                </div> */}
+
                 <div className="text-center d-flex flex-row-reverse">
                     <button type="submit" onClick={handleUpdate} className="btn btn-primary">Update</button>
                     <NavLink to='/userprofile'><button type="button" className="btn btn-secondary me-2" data-dismiss="modal">Cancel</button></NavLink>

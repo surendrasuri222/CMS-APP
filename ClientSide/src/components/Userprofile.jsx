@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
-import ProfileModal from './ProfileModal';
 import Footer from './Footer';
 
 function Userprofile() {
@@ -84,18 +83,6 @@ function Userprofile() {
                                         <p><strong>Role:</strong> {data?.role}</p>
                                         <p><strong>Gender:</strong> {data?.gender}</p>
                                         <p><strong>Age:</strong> {data?.age}</p>
-                                        {/* <p><strong>Interests:</strong></p>
-                                        <ul>
-                                            {data.interests != null && (
-                                                <ul>
-                                                    {data.interests.map((interest, i) => (
-                                                        <li key={i}>{interest}</li>
-                                                    ))}
-                                                </ul>
-                                            )}
-
-                                        </ul> */}
-
 
                                     </div>
 

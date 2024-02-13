@@ -59,25 +59,7 @@ exports.getUserByIdAndDelete = (req, res) => {
     }
 }
 
-// update user details
-exports.updateUser = (req, res) => {
-    const id = req.params.id
-    const updatedUser = req.body;
-    try {
-        User.findByIdAndUpdate(id, updatedUser)
-            .then((data) => {
-                res.status(204).send(data)
-                console.log(`User with id ${id} has been updated`)
-            })
-            .catch((err) => {
-                res.status(404).send((err) => {
-                    console.log(`User not found ${err}`)
-                })
-            })
-    } catch (error) {
-        res.status(500).send(error)
-    }
-}
+
 
 
 // create a new user
@@ -123,7 +105,7 @@ exports.deleteUser = (req, res) => {
     const token = req.headers.authorization.split(" ")[1]
 
     // Decode the token to get user information including the isAdmin field
-    const decodedToken = jwt.verify(token, "your-256-bit-secret")
+    const decodedToken = jwt.verify(token, "CMSTeam")
 
     if (decodedToken.isAdmin) {
         User.findByIdAndDelete(id)

@@ -89,19 +89,7 @@ const Pages = () => {
 
     return (
         <>
-            {/* <section>
-                <div className="container  shadow-lg p-3 mb-5 bg-white rounded p-5">
-                    <div className="col-md-12">
-                        <div className="row">
-                            <div className="col-md-6">
-                                <h1 className="page-header"><i className="glyphicon glyphicon-file"></i> Pages</h1>
-                            </div>
-                            <div className="col-md-6">
-                                <div className="btn-group actions" role="group" aria-label="...">
-                                    <button className="btn btn-primary" onClick={handleNew}>NEW</button>
-                                </div>
-                            </div>
-                        </div> */}
+
             <section>
                 <div class="container shadow-lg p-3 mb-5 bg-white rounded p-5">
                     <div className="row">

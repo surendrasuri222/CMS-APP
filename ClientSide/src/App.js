@@ -6,12 +6,10 @@ import Users from "./components/Users";
 import User from "./components/User";
 import Categories from "./components/Categories";
 import Signin from "./components/Signin";
-import Logout from "./components/Logout";
 import SignUp from "./components/SignUp";
 import './css/bootstrap.css';
 import './css/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Category from "./components/Category";
 import Dashboard from "./components/Dashboard";
 import EditUsers from "./components/EditUsers";
 import { ToastContainer, toast } from 'react-toastify';
@@ -48,7 +46,6 @@ function App() {
 
         <Route path="/" element={<Signin />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/category" element={<Category />} />
         <Route path="/dashboard" element={<Dashboard />} />
         {isAdminLoggedIn ? (
           <Route path="/users" element={<Users />} />
@@ -70,7 +67,6 @@ function App() {
         <Route path="/users/user/:id" element={<User />} />
         <Route path="/users/edit" element={<EditUsers />} />
         <Route path="/Categories" element={<Categories />} />
-        <Route path="/logout" element={<Logout />} />
         <Route path="/search" element={<Search />} />
         <Route path="/userprofile/edit/:id" element={<ProfileEdit />} />
 

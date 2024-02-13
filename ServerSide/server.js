@@ -24,7 +24,7 @@ const PORT = 4000 || process.env.PORT
 
 app.get("/", (req, res) => {
     res.json({
-        message: "Server is running"
+        message: "Server is running on the webpage"
     })
 })
 app.get('/api/page/search', searchController);
@@ -34,9 +34,11 @@ app.use('/api/page', pageRouter)
 app.use("/api/users", userRouter);
 app.use('/api', router)
 app.use("/api/categories", categoriesRouter)
+
 connectDB()
+
 app.listen(PORT, () => {
-    console.log("Server is runninnnng")
+    console.log("Server is running at port: 4000")
 })
 
 

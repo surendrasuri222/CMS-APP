@@ -3,7 +3,7 @@ const bcryptjs = require('bcryptjs');
 
 async function userSignUp(req, res) {
     try {
-
+        //checking validation from server side!!
         if (!req.body.email) {
             return res.status(400).json({
                 message: "Please provide email",
@@ -28,7 +28,7 @@ async function userSignUp(req, res) {
             })
         }
 
-
+        // finding user from database
         const user = await userModel.findOne({ email: req.body.email })
 
         if (user) {

@@ -4,15 +4,13 @@ import Footer from "./Footer";
 import { useParams } from "react-router-dom"
 import axios from "axios";
 import { useEffect } from "react";
- 
+
 const User = () => {
- 
-    // const [user, setUsers] = useState([{
-    //     name: 'sourav', email: 'email.com', interests: ['DJ playing', 'Coding', 'Hiking'], age: '22', gender: 'male', group:'admin'
-    // }]);
- 
+
+
+
     const [users, SetUsers] = useState([])
- 
+
     const { id } = useParams();
     // Fetching the user based on id
     useEffect(() => {
@@ -25,11 +23,9 @@ const User = () => {
                 console.log(err)
             })
     }, [])
- 
-    // return (
-    //     <p>Name:{users.name}</p>
-    // )
- 
+
+
+
     return (
         <>
             <section>
@@ -46,25 +42,25 @@ const User = () => {
                                         </div>
                                     </h1>
                                 </div>
- 
+
                                 <ol class="breadcrumb">
                                     <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                                     <li><NavLink to="/users">Users</NavLink></li>
                                     <li class="active">User Details</li>
                                 </ol>
- 
- 
- 
+
+
+
                                 <div className="row">
- 
+
                                     <div className="col-md-6">
                                         <p><strong>Name:</strong> {users.name}</p>
                                         <p><strong>Email:</strong> {users.email}</p>
                                         <p><strong>Gender:</strong> {users.gender}</p>
                                         <p><strong>Age:</strong> {users.age}</p>
-                                        <p><strong>Group:</strong> {users.group}</p>
-                                        <p><strong>Interests:</strong></p>
- 
+                                        <p><strong>Group:</strong> {users.role}</p>
+                                        {/* <p><strong>Interests:</strong></p> */}
+
                                         {/* <ol>
  
                                             {users.interests.map((interest, i) => (
@@ -73,20 +69,20 @@ const User = () => {
  
                                         </ol> */}
                                     </div>
- 
+
                                 </div>
- 
- 
+
+
                             </div>
                         </div>
                     </div>
                 </div>
- 
+
             </section >
- 
+
             <Footer />
         </>
     )
 }
- 
+
 export default User;

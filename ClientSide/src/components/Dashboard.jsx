@@ -17,20 +17,7 @@ const Dashboard = () => {
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
 
-    // useEffect(() => {
 
-    //     // Fetching the data using axios
-    //     axios.get("http://localhost:4000/api/users/id")
-    //         .then((users) => {
-    //             setUsers(users.data)
-    //             // console.log(users)
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         })
-    //     // console.log(users)
-
-    // }, []);
     const token = localStorage.getItem("token")
 
     useEffect(() => {
@@ -89,12 +76,7 @@ const Dashboard = () => {
 
 
 
-    // const itemsToShow = 5;
-    // const totalItems = pages.length;
-    // const totalPages = Math.ceil(totalItems / itemsToShow);
-    // const startIndex = (currentPage - 1) * itemsToShow;
-    // const endIndex = startIndex + itemsToShow;
-    // const displayedPages = pages.slice(startIndex, endIndex);
+
 
     return (
         <>
@@ -118,37 +100,13 @@ const Dashboard = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {/* <tr>
-                                                <td><NavLink to="/pages/page">Sample Page One</NavLink></td>
-                                                <td>Category One</td>
-                                                <td>John Wick</td>
-                                            </tr>
-                                            <tr>
-                                                <td><NavLink to="/pages/page">Sample Page Three</NavLink></td>
-                                                <td>Category One</td>
-                                                <td>Jenni lora</td>
-                                            </tr>
- 
-                                            <tr>
-                                                <td><NavLink to="/pages/page">Sample Page Four</NavLink></td>
-                                                <td>Category Three</td>
-                                                <td>Haley maya</td>
-                                            </tr>
- 
-                                            <tr>
-                                                <td><NavLink to="/pages/page">Sample Page Five</NavLink></td>
-                                                <td>Category Two</td>
-                                                <td>Austen Paige</td>
-                                            </tr> */}
+
                                             {pages.map((item) => (
                                                 <tr key={item._id}>
                                                     <td><NavLink to={`/page/${item._id}`}>{item.PageTitle}</NavLink></td>
                                                     <td>{item.category}</td>
                                                     <td>{item.director}</td>
-                                                    {/* <td>
-                                                        <button className="btn btn-default bi bi-pencil-square p-2 me-2" onClick={() => editHandler(item._id)}></button>
-                                                        <button onClick={() => deleteHandler(item._id)} className='btn btn-default bi bi-trash3-fill p-2'></button>
-                                                    </td> */}
+
                                                 </tr>
                                             ))}
                                         </tbody>
@@ -189,18 +147,7 @@ const Dashboard = () => {
                                                 ))
                                             }
 
-                                            {/* {
-                                                users.map((user) => {
-                                                    return (
-                                                        <tr className='p-2'>
-                                                            <td><NavLink to="/users/user">{user.email}</NavLink></td>
-                                                            <td>{user.email}</td>
-                                                            <td>{user.email}</td>
-                                                            <td><button className='btn btn-default bi bi-trash3-fill p-2' onClick={() => deleteHandler(user._id)}></button></td>
-                                                        </tr>
-                                                    )
-                                                })
-                                            } */}
+
 
                                         </tbody>
                                     </table>

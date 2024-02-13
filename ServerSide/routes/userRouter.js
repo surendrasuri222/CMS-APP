@@ -7,7 +7,6 @@ const verifyToken = require("../middleware/verifyToken")
 userRouter.get("/", userController.getUsers);
 userRouter.get("/id", userController.getLatestUsers);
 userRouter.post("/add", userController.createUser);
-userRouter.put("/edit/:id", userController.updateUser);
 userRouter.get("/:id", userController.getUserById);
 userRouter.delete("/:id", userController.getUserByIdAndDelete);
 userRouter.delete("/:id", userController.deleteUser);
