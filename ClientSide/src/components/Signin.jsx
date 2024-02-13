@@ -28,32 +28,6 @@ function Signin() {
     }
     console.log("data", data)
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault()
-    //     const response = await fetch('http://localhost:4000/api/', {
-    //         method: 'post',
-    //         headers: {
-    //             "content-type": 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-
-    //     const dataResponse = await response.json()
-
-    //     console.log("dataResponse", dataResponse)
-
-    //     if (dataResponse.error) {
-    //         toast.error(dataResponse.message)
-    //     }
-
-    //     if (dataResponse.success) {
-    //         toast.success(dataResponse.message)
-    //         localStorage.setItem('token', dataResponse.token)
-    //         navigate('/dashboard')
-    //         window.location.reload();
-
-    //     }
-    // }
     const handleSubmit = async (e) => {
         e.preventDefault();
 

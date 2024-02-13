@@ -21,7 +21,7 @@ chai.use(chaiHttp);
 
 const validTempUser = {
     "userName": "Sam",
-    "email": "sam123@gmail.com",
+    "email": "sam1234@gmail.com",
     "password": "secret@123",
     "role": "guest",
     "gender": "Male",
@@ -84,7 +84,7 @@ describe('Test /GET user', () => {
     it('it should post a user', (done) => {
 
         chai.request(server)
-            .post('/api/users')
+            .post('/api/users/add')
             .send(validTempUser)
             .end((err, res) => {
                 res.should.have.status(201);

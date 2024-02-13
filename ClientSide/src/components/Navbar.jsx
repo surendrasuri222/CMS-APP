@@ -22,7 +22,9 @@ const Navbar = () => {
         setShowSearch(!showSearch);
     };
 
-
+    const handleMenuItemClick = () => {
+        setShowMenu(false); // Hide the menu when a menu item is clicked
+    };
     const handleLogOut = () => {
         localStorage.clear()
         navigate("/")
@@ -34,18 +36,23 @@ const Navbar = () => {
             <h4 className='white-text flex-row'><NavLink to='/dashboard' className="nav__logo">DCX CMS</NavLink></h4>
 
             <div className={`nav__menu ${showMenu ? 'show-menu' : ''}`} style={{ zIndex: 1 }}>
+                {showMenu && (
+
+                    <i className="bi bi-x d-flex flex-row-reverse" onClick={handleMenuItemClick}></i>
+
+                )}
                 <ul className="nav__list my-auto" >
                     <li className="nav__item my-auto" style={{ fontSize: '14px' }}>
-                        <NavLink to="/dashboard">Dashboard</NavLink>
+                        <NavLink to="/dashboard" onClick={handleMenuItemClick}>Dashboard</NavLink>
                     </li>
                     <li className="nav__item my-auto" style={{ fontSize: '14px' }}>
-                        <NavLink to='/pages'>Pages</NavLink>
+                        <NavLink to='/pages' onClick={handleMenuItemClick}>Pages</NavLink>
                     </li>
                     <li className="nav__item my-auto" style={{ fontSize: '14px' }}>
-                        <NavLink to='/categories'>Categories</NavLink>
+                        <NavLink to='/categories' onClick={handleMenuItemClick}>Categories</NavLink>
                     </li>
                     <li className="nav__item my-auto" style={{ fontSize: '14px' }}>
-                        <NavLink to='/users'>Users</NavLink>
+                        <NavLink to='/users' onClick={handleMenuItemClick}>Users</NavLink>
                     </li>
                     <li className="nav__item my-auto">
 

@@ -5,7 +5,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { NavLink } from 'react-router-dom'
 const ProfileEdit = () => {
-    // const [interests, setInterests] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
 

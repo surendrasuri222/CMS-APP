@@ -52,19 +52,7 @@ describe('/Test Pages', () => {
         done();
     })
 
-    // it('create page will fail when no data found', (done) => {
-    //     chai.request(server)
-    //         .post('/api/page')
-    //         .end((err, res) => {
-    //             res.should.have.status(400);
-    //             res.body.should.have.property('error');
 
-    //             chai.expect(res.body.error).include("Pages validation failed")
-
-
-    //         });
-    //     done();
-    // });
 
     it('should update a page successfully', (done) => {
         const id = '1234567890'; // sample id

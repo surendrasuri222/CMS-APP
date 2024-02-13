@@ -10,11 +10,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Categories() {
 
-    useEffect(() => {
-        $("#sort-table").tablesorter({
-            sortList: [[0, 0], [1, 0]]
-        });
-    }, []);
 
     const [categoryCounts, setCategoryCounts] = useState([]);
 
@@ -94,27 +89,7 @@ export default function Categories() {
                                     }
                                 </tbody>
                             </table>
-                            {/* <div className="d-flex justify-content-center h-2 ">
-                                <nav className='mx-auto p-2' aria-label="Book navigation">
-                                    <ul className="pagination">
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div> */}
+
                         </div>
                     </div>
                 </div>
