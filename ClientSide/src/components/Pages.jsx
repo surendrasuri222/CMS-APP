@@ -129,7 +129,7 @@ const Pages = () => {
                                             <tr key={item._id}>
                                                 <td><Link to={`/page/${item._id}`}>{item.PageTitle}</Link></td>
                                                 <td>{item.category}</td>
-                                                <td>{item.director}</td>
+                                                <td>{item.author}</td>
                                                 {isAdminLoggedIn ? (<td>
                                                     <button className="btn btn-default bi bi-pencil-square p-2 me-2" onClick={() => editHandler(item._id)}></button>
                                                     <button onClick={() => deleteHandler(item._id)} className='btn btn-default bi bi-trash3-fill p-2'></button>

@@ -13,7 +13,7 @@ const NewAndEdit = () => {
     const [formData, setFormData] = useState({
         PageTitle: '',
         category: '',
-        director: '',
+        author: '',
         description: ''
     });
 
@@ -72,8 +72,8 @@ const NewAndEdit = () => {
                     <label htmlFor="category" className="col-form-label">Category</label>
                     <input type="text" className="form-control" id="category" name="category" value={formData.category.charAt(0).toUpperCase() + formData.category.slice(1)} onChange={handleChange} required />
                     <div className="form-group">
-                        <label htmlFor="director" className="col-form-label">Author</label>
-                        <input type="text" className="form-control" id="director" name="director" value={formData.director.charAt(0).toUpperCase() + formData.director.slice(1)} onChange={handleChange} required />
+                        <label htmlFor="author" className="col-form-label">Author</label>
+                        <input type="text" className="form-control" id="author" name="author" value={formData.author.charAt(0).toUpperCase() + formData.director.slice(1)} onChange={handleChange} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="description" className="col-form-label">Description</label>
