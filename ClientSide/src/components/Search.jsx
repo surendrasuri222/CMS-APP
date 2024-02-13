@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-import { getPage } from "../apiService/pageApiService";
+// import { getPage } from "../apiService/pageApiService";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -11,22 +11,22 @@ const Search = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [pages, setPages] = useState([]);
+    // const [pages, setPages] = useState([]);
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
 
 
-    useEffect(() => {
-        const fetchpageData = async () => {
-            try {
-                const response = await getPage();
-                setPages(response);
-            } catch (error) {
-                console.error("Error fetching Pages:", error.message);
-            }
-        };
-        fetchpageData([]);
-    }, []);
+    // useEffect(() => {
+    //     const fetchpageData = async () => {
+    //         try {
+    //             const response = await getPage();
+    //             setPages(response);
+    //         } catch (error) {
+    //             console.error("Error fetching Pages:", error.message);
+    //         }
+    //     };
+    //     fetchpageData([]);
+    // }, []);
 
 
     useEffect(() => {
