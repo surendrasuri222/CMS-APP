@@ -7,9 +7,11 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function Categories() {
-
+    const [categories, setCategories] = useState([]);
 
     const [categoryCounts, setCategoryCounts] = useState([]);
+    const token = localStorage.getItem("token")
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Fetching the data using axios
@@ -22,15 +24,13 @@ export default function Categories() {
                 console.log(err);
             });
     }, []);
-    const token = localStorage.getItem("token")
-    const navigate = useNavigate();
+
 
     useEffect(() => {
         if (!token) {
             navigate("/")
         }
     }, [])
-    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         // Fetching the data using axios

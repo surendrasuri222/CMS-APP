@@ -42,8 +42,6 @@ function Signin() {
 
             const dataResponse = await response.json();
 
-            console.log("dataResponse", dataResponse);
-
             if (dataResponse.error) {
                 toast.error(dataResponse.message);
             }

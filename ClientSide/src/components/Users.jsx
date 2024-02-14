@@ -39,9 +39,6 @@ const Users = () => {
 
     // deleting the user
     const deleteHandler = (id) => {
-
-        console.log(id);
-
         if (window.confirm(`Are you sure you want to delete this user?`)) {
             axios.delete(`http://localhost:4000/api/users/${id}`)
                 .then((response) => {
@@ -57,21 +54,7 @@ const Users = () => {
         }
     }
 
-    //sorting
-    const sortColumn = (columnName) => {
-        const sortedUsers = [...users].sort((a, b) => {
-            if (a[columnName] < b[columnName]) return -1;
-            if (a[columnName] > b[columnName]) return 1;
-            return 0;
-        });
-        // Check if the column was previously sorted in ascending order
-        const isAscending = users === sortedUsers || users[0][columnName] < users[users.length - 1][columnName];
-        // If it was sorted in ascending order, sort in descending order
-        if (isAscending) {
-            sortedUsers.reverse();
-        }
-        setUsers(sortedUsers);
-    }
+
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
     };
@@ -115,9 +98,9 @@ const Users = () => {
                                 <thead>
                                     <tr>
 
-                                        <th onClick={() => sortColumn('name')}>Full Name <i class="glyphicon glyphicon-chevron-down"></i></th>
-                                        <th onClick={() => sortColumn('email')}>Email <i class="glyphicon glyphicon-chevron-down"></i></th>
-                                        <th onClick={() => sortColumn('role')}>Group <i class="glyphicon glyphicon-chevron-down"></i></th>
+                                        <th >Full Name <i class="glyphicon glyphicon-chevron-down"></i></th>
+                                        <th >Email <i class="glyphicon glyphicon-chevron-down"></i></th>
+                                        <th >Group <i class="glyphicon glyphicon-chevron-down"></i></th>
                                         <th>Action <i class="glyphicon glyphicon-chevron-down"></i></th>
                                     </tr>
                                 </thead>

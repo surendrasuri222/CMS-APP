@@ -101,7 +101,7 @@ const Dashboard = () => {
                                                 <tr key={item._id}>
                                                     <td><NavLink to={`/page/${item._id}`}>{item.PageTitle}</NavLink></td>
                                                     <td>{item.category}</td>
-                                                    <td>{item.director}</td>
+                                                    <td>{item.author}</td>
 
                                                 </tr>
                                             ))}

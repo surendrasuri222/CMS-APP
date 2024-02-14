@@ -29,40 +29,46 @@ function Signup() {
     console.log("data", data)
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
         if (data.password !== data.confirmpassword) {
-            toast.error("Password and confirm password must be same !")
-            return
+            toast.error("Password and confirm password must be same !");
+            return;
         }
 
-        setLoading(true)
-        const response = await fetch("http://localhost:4000/api/signup", {
-            method: "post",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-        const dataResponse = await response.json()
-        setLoading(false)
-        console.log("dataResponse", dataResponse)
+        setLoading(true);
 
-        if (dataResponse.error) {
-            toast.error(dataResponse.message)
+        try {
+            const response = await fetch("http://localhost:4000/api/signup", {
+                method: "post",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            const dataResponse = await response.json();
+            if (dataResponse.error) {
+                toast.error(dataResponse.message);
+            }
+
+            if (dataResponse.success) {
+                toast.success(dataResponse.message);
+                setData({
+                    name: "",
+                    email: "",
+                    password: "",
+                    confirmPassword: ""
+                });
+                navigate('/');
+            }
+        } catch (error) {
+            console.error("Error during fetch operation:", error);
+            toast.error("An error occurred while processing your request");
         }
 
-        if (dataResponse.success) {
-            toast.success(dataResponse.message)
-            setData({
-                name: "",
-                email: "",
-                password: "",
-                confirmPassword: ""
-            })
-            navigate('/')
-        }
-
-    }
+        setLoading(false);
+    };
 
 
 

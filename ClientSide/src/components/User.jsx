@@ -56,15 +56,7 @@ const User = () => {
                                         <p><strong>Gender:</strong> {users.gender}</p>
                                         <p><strong>Age:</strong> {users.age}</p>
                                         <p><strong>Group:</strong> {users.role}</p>
-                                        {/* <p><strong>Interests:</strong></p> */}
 
-                                        {/* <ol>
- 
-                                            {users.interests.map((interest, i) => (
-                                                <li key={i}>{interest}</li>
-                                            ))}
- 
-                                        </ol> */}
                                     </div>
 
                                 </div>

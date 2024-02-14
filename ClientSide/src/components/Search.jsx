@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-// import { getPage } from "../apiService/pageApiService";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -11,23 +10,8 @@ const Search = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    // const [pages, setPages] = useState([]);
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
-
-
-    // useEffect(() => {
-    //     const fetchpageData = async () => {
-    //         try {
-    //             const response = await getPage();
-    //             setPages(response);
-    //         } catch (error) {
-    //             console.error("Error fetching Pages:", error.message);
-    //         }
-    //     };
-    //     fetchpageData([]);
-    // }, []);
-
 
     useEffect(() => {
         if (!token) {
@@ -47,9 +31,8 @@ const Search = () => {
             setData(data);
         } catch (error) {
             setError(error.message || 'Something went wrong');
-        } finally {
-            setLoading(false);
         }
+        setLoading(false);
     };
 
     useEffect(() => {
@@ -69,7 +52,6 @@ const Search = () => {
                 <button className="search-button" >
                     <i className="fa fa-search"></i>
                 </button>
-
 
             </div>
             <div className='result-list'>

@@ -2,7 +2,7 @@ const userModel = require("../models/usermodel")
 
 async function userProfile(req, res) {
     try {
-        console.log("userId - userprofile", req.userId)
+        console.log("userId in userprofile", req.userId)
 
         const user = await userModel.findById(req.userId).select("-password")
 
