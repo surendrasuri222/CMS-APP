@@ -54,7 +54,8 @@ function Userprofile() {
                                                 <i className="glyphicon glyphicon-file"></i> Welcome {data?.name} !!
                                             </div>
                                             <div className="col xs={6} sm={6} md={6} lg={6} d-flex flex-row-reverse">
-                                                <NavLink to={`/userprofile/edit/${data._id}`}><button type="button" className="btn btn-primary shadow-lg"><i className="bi bi-pencil-square"></i> Edit</button></NavLink>                                            </div>
+                                                <NavLink to={`/userprofile/edit/${data._id}`}><button type="button" className="btn btn-primary shadow-lg"><i className="bi bi-pencil-square"></i> Edit</button></NavLink>
+                                            </div>
                                         </div>
                                     </h1>
                                 </div>

@@ -7,9 +7,6 @@ const NewAndEdit = () => {
     const { id } = useParams()
     const navigate = useNavigate();
     const baseUrl = 'http://localhost:4000/api/page';
-
-
-
     const [formData, setFormData] = useState({
         PageTitle: '',
         category: '',

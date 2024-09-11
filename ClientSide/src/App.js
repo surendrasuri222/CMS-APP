@@ -21,6 +21,7 @@ import Search from "./components/Search";
 import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import Unauth from "./components/Unauth";
+import Bookmark from "./components/Bookmark";
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
         <Route path="/users/user/:id" element={<User />} />
         <Route path="/Categories" element={<Categories />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/userprofile/edit/:id" element={<ProfileEdit />} />
 
 
